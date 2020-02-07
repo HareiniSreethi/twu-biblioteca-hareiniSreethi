@@ -1,2 +1,6 @@
 .idea/
+.gradle/
 out/
+build/
+**/.DS_Store
+TWU_Biblioteca-master.iml
