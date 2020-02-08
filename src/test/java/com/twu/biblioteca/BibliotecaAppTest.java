@@ -38,8 +38,8 @@ class BibliotecaAppTest {
     void shouldDisplayListOfAvailableBooksAfterWelcomeMessage() {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
         String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
-                "Shawshank Redemption\n" +
-                "Pride and Prejudice";
+                "Shawshank Redemption | Stephen King | 1982\n" +
+                "Pride and Prejudice | Jane Austen | 1813";
 
         bibliotecaApp.displayWelcomeMessage();
         bibliotecaApp.displayAvailableBooks();
