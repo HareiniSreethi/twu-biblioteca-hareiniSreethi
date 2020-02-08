@@ -27,7 +27,15 @@ import static org.junit.jupiter.api.Assertions.*;
     }
 
     @Test
-    void shouldBeAbleToDisplayNameOfTheBook() {
+    void shouldCheckIfTwoBooksAreTheSame() {
+        Book book = new Book("Harry Potter and The Sorcerer's Stone", "Rowling J.K.", "2001");
+        Book expected = new Book("Harry Potter and The Sorcerer's Stone", "Rowling J.K.", "2001");
+
+        assertEquals(expected, book);
+    }
+
+    @Test
+    void shouldBeAbleToDisplayDetailsOfTheBook() {
         Book book = new Book("Harry Potter and The Sorcerer's Stone", "Rowling J.K.", "2001");
         String expected = "Harry Potter and The Sorcerer's Stone | Rowling J.K. | 2001";
 
@@ -35,4 +43,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
         assertEquals(expected, outContent.toString().trim());
     }
+
+
 }
