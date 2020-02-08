@@ -28,10 +28,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
     @Test
     void shouldBeAbleToDisplayNameOfTheBook() {
-        Book book = new Book("Harry Potter and The Sorcerer's Stone");
-        String expected = "Harry Potter and The Sorcerer's Stone";
+        Book book = new Book("Harry Potter and The Sorcerer's Stone", "Rowling J.K.", "2001");
+        String expected = "Harry Potter and The Sorcerer's Stone | Rowling J.K. | 2001";
 
-        book.viewBookName();
+        book.viewBookDetails();
 
         assertEquals(expected, outContent.toString().trim());
     }
