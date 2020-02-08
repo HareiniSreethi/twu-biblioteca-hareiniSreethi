@@ -59,7 +59,7 @@ class BibliotecaAppTest {
 
         bibliotecaApp.displayMenuOptions();
 
-        assertEquals("1. List of Books\n" + "2. Quit", outContent.toString().trim());
+        assertEquals("1. List of Books\n" + "2. Check out book\n" + "3. Quit", outContent.toString().trim());
     }
 
     @Test
@@ -80,7 +80,7 @@ class BibliotecaAppTest {
     @Test
     void shouldDisplayNotificationWhenInvalidOptionIsSelected() {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
-        String option = "3";
+        String option = "8";
         System.setIn(new ByteArrayInputStream(option.getBytes()));
         String expectedOutput = "Please select a valid option!";
 
@@ -90,4 +90,5 @@ class BibliotecaAppTest {
 
         assertTrue(outContent.toString().trim().contains(expectedOutput));
     }
+
 }

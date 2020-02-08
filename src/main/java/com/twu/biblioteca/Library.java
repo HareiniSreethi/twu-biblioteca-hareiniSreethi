@@ -15,8 +15,8 @@ public class Library {
     }
 
     public void viewAvailableBooks() {
-        for (Book book : availableBooks){
-            if(! checkedoutBooks.contains(book))
+        for (Book book : availableBooks) {
+            if (!checkedoutBooks.contains(book))
                 book.viewBookDetails();
         }
     }
@@ -24,8 +24,8 @@ public class Library {
     public void checkoutBook(String bookName) {
         Book checkoutBook = new Book(bookName);
 
-        for(Book book : availableBooks){
-            if(book.equals(checkoutBook))
+        for (Book book : availableBooks) {
+            if (book.equals(checkoutBook))
                 checkedoutBooks.add(checkoutBook);
         }
     }

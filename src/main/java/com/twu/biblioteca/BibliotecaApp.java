@@ -3,6 +3,9 @@ package com.twu.biblioteca;
 import java.util.Arrays;
 
 public class BibliotecaApp {
+    UserInput userInput = new UserInput();
+    Menu menu = new Menu();
+    Library library = new Library();
 
     public static void main(String[] args) {
         Boolean isRunning = true;
@@ -23,17 +26,15 @@ public class BibliotecaApp {
     }
 
     public void displayMenuOptions() {
-        Menu menu = new Menu();
         menu.displayMenuOptions();
     }
 
     public void displayAvailableBooks() {
-        Library library = new Library();
         library.viewAvailableBooks();
     }
 
     public void selectOption() {
-        UserInput userInput = new UserInput();
+
         userInput.getOption();
     }
 }
