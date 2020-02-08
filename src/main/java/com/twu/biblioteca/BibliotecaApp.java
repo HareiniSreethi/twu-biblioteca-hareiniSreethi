@@ -9,7 +9,7 @@ public class BibliotecaApp {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
         bibliotecaApp.displayWelcomeMessage();
 
-        while(isRunning){
+        while (isRunning) {
             bibliotecaApp.displayMenuOptions();
             bibliotecaApp.selectOption();
         }
@@ -21,7 +21,7 @@ public class BibliotecaApp {
     }
 
     public void displayMenuOptions() {
-        Menu menu = new Menu(Arrays.asList("List of Books", "Quit"));
+        Menu menu = new Menu();
         menu.displayMenuOptions();
     }
 

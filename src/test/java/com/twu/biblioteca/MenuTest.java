@@ -29,21 +29,11 @@ class MenuTest {
 
     @Test
     void shouldDisplayTheListOfMenuOptions() {
-        Menu menu = new Menu(Arrays.asList("List of Books"));
-        String expectedOutput = "1. List of Books";
+        Menu menu = new Menu();
+        String expectedOutput = "1. List of Books\n" + "2. Quit";
         menu.displayMenuOptions();
 
         assertEquals(expectedOutput, outContent.toString().trim());
     }
 
-    @Test
-    void shouldDisplayTheListOfMenuOptionsWithQuit() {
-        Menu menu = new Menu(Arrays.asList("List of Books", "Quit"));
-        String expectedOutput = "1. List of Books\n" +
-                "2. Quit";
-
-        menu.displayMenuOptions();
-
-        assertEquals(expectedOutput, outContent.toString().trim());
-    }
 }

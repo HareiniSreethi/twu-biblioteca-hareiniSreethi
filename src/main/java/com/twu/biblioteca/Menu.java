@@ -1,12 +1,13 @@
 package com.twu.biblioteca;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Menu {
     private List<String> menuOptions;
 
-    public Menu(List<String> menuOptions) {
-        this.menuOptions = menuOptions;
+    public Menu() {
+        this.menuOptions = Arrays.asList("List of Books", "Quit");
     }
 
     public void displayMenuOptions() {
