@@ -24,10 +24,15 @@ public class Library {
     public void checkoutBook(String bookName) {
         Book checkoutBook = new Book(bookName);
 
-        for (Book book : availableBooks) {
-            if (book.equals(checkoutBook)) {
-                checkedoutBooks.add(checkoutBook);
-                System.out.println("Thank you! Enjoy the book");
+        if(! availableBooks.contains(checkoutBook)){
+            System.out.println("Sorry, that book is not available");
+        }
+        else{
+            for (Book book : availableBooks) {
+                if (book.equals(checkoutBook)) {
+                    checkedoutBooks.add(checkoutBook);
+                    System.out.println("Thank you! Enjoy the book");
+                }
             }
         }
     }

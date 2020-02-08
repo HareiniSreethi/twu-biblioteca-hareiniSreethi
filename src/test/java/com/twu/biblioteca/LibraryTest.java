@@ -58,4 +58,14 @@ class LibraryTest {
 
         assertTrue(outContent.toString().trim().contains(expected));
     }
+
+    @Test
+    void shouldDisplayUnSuccessfulMessageWhenBookIsNotAvailableForCheckout() {
+        Library library = new Library();
+        String expected = "Sorry, that book is not available";
+        library.checkoutBook("Harry Potter");
+
+
+        assertTrue(outContent.toString().trim().contains(expected));
+    }
 }
