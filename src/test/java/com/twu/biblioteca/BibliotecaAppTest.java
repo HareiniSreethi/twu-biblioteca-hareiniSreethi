@@ -10,6 +10,7 @@ import java.io.InputStream;
 import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class BibliotecaAppTest {
 
@@ -66,17 +67,14 @@ class BibliotecaAppTest {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
         String option = "1";
         System.setIn(new ByteArrayInputStream(option.getBytes()));
-        String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
-                "1. List of Books\n" +
-                "2. Quit\n" +
-                "Shawshank Redemption | Stephen King | 1982\n" +
+        String expectedOutput = "Shawshank Redemption | Stephen King | 1982\n" +
                 "Pride and Prejudice | Jane Austen | 1813";
 
         bibliotecaApp.displayWelcomeMessage();
         bibliotecaApp.displayMenuOptions();
         bibliotecaApp.selectOption();
 
-        assertEquals(expectedOutput, outContent.toString().trim());
+        assertTrue(outContent.toString().trim().contains(expectedOutput));
     }
 
     @Test
@@ -84,15 +82,12 @@ class BibliotecaAppTest {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
         String option = "2";
         System.setIn(new ByteArrayInputStream(option.getBytes()));
-        String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
-                "1. List of Books\n" +
-                "2. Quit\n" +
-                "Please select a valid option!";
+        String expectedOutput = "Please select a valid option!";
 
         bibliotecaApp.displayWelcomeMessage();
         bibliotecaApp.displayMenuOptions();
         bibliotecaApp.selectOption();
 
-        assertEquals(expectedOutput, outContent.toString().trim());
+        assertTrue(outContent.toString().trim().contains(expectedOutput));
     }
 }
