@@ -9,7 +9,7 @@ import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-    class BookTest {
+class BookTest {
 
     private ByteArrayOutputStream outContent;
     private PrintStream originalOut;

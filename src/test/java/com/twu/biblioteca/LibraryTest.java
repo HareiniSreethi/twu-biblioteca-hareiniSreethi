@@ -96,4 +96,14 @@ class LibraryTest {
 
         assertEquals(expected, outContent.toString().trim());
     }
+
+    @Test
+    void shouldDisplayWarningNotificationOnUnsuccessfulReturnOfBook() {
+        Library library = new Library();
+        String expected = "That is not a valid book to return";
+
+        library.returnBook("abc");
+
+        assertEquals(expected, outContent.toString().trim());
+    }
 }

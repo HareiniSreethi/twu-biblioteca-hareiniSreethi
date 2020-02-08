@@ -59,7 +59,7 @@ class BibliotecaAppTest {
 
         bibliotecaApp.displayMenuOptions();
 
-        assertEquals("1. List of Books\n" + "2. Check out book\n" + "3. Return Book\n" +  "4. Quit", outContent.toString().trim());
+        assertEquals("1. List of Books\n" + "2. Check out book\n" + "3. Return Book\n" + "4. Quit", outContent.toString().trim());
     }
 
     @Test

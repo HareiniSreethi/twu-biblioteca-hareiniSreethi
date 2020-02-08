@@ -38,9 +38,11 @@ public class Library {
 
     public void returnBook(String bookName) {
         Book returnBook = new Book(bookName);
-        if (checkedoutBooks.contains(returnBook)){
+        if (checkedoutBooks.contains(returnBook)) {
             checkedoutBooks.remove(returnBook);
             System.out.println("Thank you for returning the book");
+        } else {
+            System.out.println("That is not a valid book to return");
         }
     }
 }
