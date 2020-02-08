@@ -9,16 +9,17 @@ public class BibliotecaApp {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
         bibliotecaApp.displayWelcomeMessage();
         bibliotecaApp.displayMenuOptions();
-
-        Scanner in = new Scanner(System.in);
-        int option = in.nextInt();
-
-        bibliotecaApp.displayAvailableBooks();
+        bibliotecaApp.selectOption();
     }
 
     public void displayWelcomeMessage() {
         String message = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
         System.out.println(message);
+    }
+
+    public void displayMenuOptions() {
+        Menu menu = new Menu(Arrays.asList("List of Books"));
+        menu.displayMenuOptions();
     }
 
     public void displayAvailableBooks() {
@@ -29,9 +30,12 @@ public class BibliotecaApp {
         library.viewAvailableBooks();
     }
 
-    public void displayMenuOptions() {
-        Menu menu = new Menu(Arrays.asList("List of Books"));
-        menu.displayMenuOptions();
+    private void selectOption() {
+        Scanner in = new Scanner(System.in);
+        int option = in.nextInt();
+        if (option == 1) {
+            displayAvailableBooks();
+        }
     }
 }
 
