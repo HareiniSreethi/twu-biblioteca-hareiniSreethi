@@ -7,7 +7,7 @@ public class Menu {
     private List<String> menuOptions;
 
     public Menu() {
-        this.menuOptions = Arrays.asList("List of Books", "Quit");
+        this.menuOptions = Arrays.asList("List of Books", "Check out book", "Quit");
     }
 
     public void displayMenuOptions() {

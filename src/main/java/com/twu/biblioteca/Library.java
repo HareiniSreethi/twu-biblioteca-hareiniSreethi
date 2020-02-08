@@ -21,7 +21,6 @@ public class Library {
         }
     }
 
-
     public void checkoutBook(String bookName) {
         Book checkoutBook = new Book(bookName);
 
