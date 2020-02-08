@@ -25,8 +25,10 @@ public class Library {
         Book checkoutBook = new Book(bookName);
 
         for (Book book : availableBooks) {
-            if (book.equals(checkoutBook))
+            if (book.equals(checkoutBook)) {
                 checkedoutBooks.add(checkoutBook);
+                System.out.println("Thank you! Enjoy the book");
+            }
         }
     }
 }

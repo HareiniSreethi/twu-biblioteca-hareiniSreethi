@@ -8,6 +8,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class LibraryTest {
 
@@ -30,7 +31,7 @@ class LibraryTest {
     void shouldBeAbleToDisplayNameOfBooksAvailable() {
         Library library = new Library();
         String expected = "Shawshank Redemption | Stephen King | 1982\n" +
-        "Pride and Prejudice | Jane Austen | 1813";
+                "Pride and Prejudice | Jane Austen | 1813";
 
         library.viewAvailableBooks();
 
@@ -40,11 +41,21 @@ class LibraryTest {
     @Test
     void shouldBeAbleToCheckoutABookFromLibrary() {
         Library library = new Library();
-        String expected  = "Pride and Prejudice | Jane Austen | 1813";
+        String expected = "Thank you! Enjoy the book\n" + "Pride and Prejudice | Jane Austen | 1813";
 
         library.checkoutBook("Shawshank Redemption");
         library.viewAvailableBooks();
 
         assertEquals(expected, outContent.toString().trim());
+    }
+
+    @Test
+    void shouldDisplayANotificationOnSuccessfulBookCheckout() {
+        Library library = new Library();
+        String expected = "Thank you! Enjoy the book";
+
+        library.checkoutBook("Shawshank Redemption");
+
+        assertTrue(outContent.toString().trim().contains(expected));
     }
 }
