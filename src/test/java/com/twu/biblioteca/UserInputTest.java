@@ -42,4 +42,16 @@ class UserInputTest {
 
         assertEquals(expectedOutput, outContent.toString().trim());
     }
+
+    @Test
+    void shouldDisplayNotificationWhenInvalidOptionIsSelected() {
+        String option = "2";
+        System.setIn(new ByteArrayInputStream(option.getBytes()));
+        UserInput userInput = new UserInput();
+        String expectedOutput = "Please select a valid option!";
+
+        userInput.getOption();
+
+        assertEquals(expectedOutput, outContent.toString().trim());
+    }
 }
