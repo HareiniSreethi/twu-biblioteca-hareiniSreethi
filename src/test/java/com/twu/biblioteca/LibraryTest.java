@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.sql.ClientInfoStatus;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -63,9 +64,23 @@ class LibraryTest {
     void shouldDisplayUnSuccessfulMessageWhenBookIsNotAvailableForCheckout() {
         Library library = new Library();
         String expected = "Sorry, that book is not available";
+
         library.checkoutBook("Harry Potter");
 
-
         assertTrue(outContent.toString().trim().contains(expected));
+    }
+
+    @Test
+    void shouldBeAbleToReturnABook() {
+        Library library = new Library();
+        String expected = "Thank you! Enjoy the book\n" +
+                "Shawshank Redemption | Stephen King | 1982\n" +
+                "Pride and Prejudice | Jane Austen | 1813";
+
+        library.checkoutBook("Shawshank Redemption");
+        library.returnBook("Shawshank Redemption");
+        library.viewAvailableBooks();
+
+        assertEquals(expected, outContent.toString().trim());
     }
 }
