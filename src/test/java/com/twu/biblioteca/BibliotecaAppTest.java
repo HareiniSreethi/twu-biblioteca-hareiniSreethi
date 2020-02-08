@@ -70,4 +70,18 @@ class BibliotecaAppTest {
 
         assertEquals(expectedOutput, outContent.toString().trim());
     }
+
+    @Test
+    void shouldDisplayNotificationWhenInvalidOptionIsSelected() {
+        BibliotecaApp bibliotecaApp = new BibliotecaApp();
+        String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
+                "1. List of Books\n" +
+                "Please select a valid option!";
+
+        bibliotecaApp.displayWelcomeMessage();
+        bibliotecaApp.displayMenuOptions();
+        bibliotecaApp.selectOption(2);
+
+        assertEquals(expectedOutput, outContent.toString().trim());
+    }
 }
