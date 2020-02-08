@@ -27,10 +27,23 @@ class BibliotecaAppTest {
     }
 
     @Test
-    void shouldReturnWelcomeMessageWhenApplicationStarts() {
+    void shouldDisplayWelcomeMessageWhenApplicationStarts() {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
         bibliotecaApp.displayWelcomeMessage();
 
         assertEquals("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!", outContent.toString().trim());
+    }
+
+    @Test
+    void shouldDisplayListOfAvailableBooksAfterWelcomeMessage() {
+        BibliotecaApp bibliotecaApp = new BibliotecaApp();
+        String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
+                "Shawshank Redemption\n" +
+                "Pride and Prejudice";
+
+        bibliotecaApp.displayWelcomeMessage();
+        bibliotecaApp.displayAvailableBooks();
+
+        assertEquals(expectedOutput, outContent.toString().trim());
     }
 }
