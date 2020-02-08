@@ -66,7 +66,7 @@ class BibliotecaAppTest {
 
         bibliotecaApp.displayWelcomeMessage();
         bibliotecaApp.displayMenuOptions();
-        bibliotecaApp.displayAvailableBooks();
+        bibliotecaApp.selectOption(1);
 
         assertEquals(expectedOutput, outContent.toString().trim());
     }

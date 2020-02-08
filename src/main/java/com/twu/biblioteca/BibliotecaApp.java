@@ -30,11 +30,23 @@ public class BibliotecaApp {
         library.viewAvailableBooks();
     }
 
-    private void selectOption() {
+    public void selectOption() {
         Scanner in = new Scanner(System.in);
         int option = in.nextInt();
         if (option == 1) {
             displayAvailableBooks();
+        }
+        else {
+            System.out.println("Please select a valid option!");
+        }
+    }
+
+    public void selectOption(int option) {
+        if (option == 1) {
+            displayAvailableBooks();
+        }
+        else {
+            System.out.println("Please select a valid option!");
         }
     }
 }
