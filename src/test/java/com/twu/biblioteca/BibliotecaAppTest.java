@@ -46,4 +46,13 @@ class BibliotecaAppTest {
 
         assertEquals(expectedOutput, outContent.toString().trim());
     }
+
+    @Test
+    void shouldDisplayMenuOptionsToViewListOfBooks() {
+        BibliotecaApp bibliotecaApp = new BibliotecaApp();
+
+        bibliotecaApp.displayMenuOptions();
+
+        assertEquals("1. List of Books", outContent.toString().trim());
+    }
 }
