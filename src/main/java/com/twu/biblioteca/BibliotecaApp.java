@@ -1,7 +1,6 @@
 package com.twu.biblioteca;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class BibliotecaApp {
 
@@ -28,23 +27,9 @@ public class BibliotecaApp {
     }
 
     public void selectOption() {
-        Scanner in = new Scanner(System.in);
-        int option = in.nextInt();
-        if (option == 1) {
-            displayAvailableBooks();
-        }
-        else {
-            System.out.println("Please select a valid option!");
-        }
+        UserInput userInput = new UserInput();
+        userInput.getOption();
     }
 
-    public void selectOption(int option) {
-        if (option == 1) {
-            displayAvailableBooks();
-        }
-        else {
-            System.out.println("Please select a valid option!");
-        }
-    }
 }
 

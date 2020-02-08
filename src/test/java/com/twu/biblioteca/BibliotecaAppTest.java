@@ -4,7 +4,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -13,11 +15,14 @@ class BibliotecaAppTest {
 
     private ByteArrayOutputStream outContent;
     private PrintStream originalOut;
+    private InputStream originalIn;
+
 
     @BeforeEach
     public void setUp() {
         outContent = new ByteArrayOutputStream();
         originalOut = System.out;
+        originalIn = System.in;
         System.setOut(new PrintStream(outContent));
     }
 
@@ -57,8 +62,10 @@ class BibliotecaAppTest {
     }
 
     @Test
-    void shouldDisplayWelcomeMessageWithMenuOptionsToViewListOfBooksAfterSelection() {
+    void shouldDisplayMenuOptionsToViewListOfBooksAfterSelection() {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
+        String option = "1";
+        System.setIn(new ByteArrayInputStream(option.getBytes()));
         String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
                 "1. List of Books\n" +
                 "Shawshank Redemption | Stephen King | 1982\n" +
@@ -66,7 +73,7 @@ class BibliotecaAppTest {
 
         bibliotecaApp.displayWelcomeMessage();
         bibliotecaApp.displayMenuOptions();
-        bibliotecaApp.selectOption(1);
+        bibliotecaApp.selectOption();
 
         assertEquals(expectedOutput, outContent.toString().trim());
     }
@@ -74,14 +81,17 @@ class BibliotecaAppTest {
     @Test
     void shouldDisplayNotificationWhenInvalidOptionIsSelected() {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
+        String option = "2";
+        System.setIn(new ByteArrayInputStream(option.getBytes()));
         String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
                 "1. List of Books\n" +
                 "Please select a valid option!";
 
         bibliotecaApp.displayWelcomeMessage();
         bibliotecaApp.displayMenuOptions();
-        bibliotecaApp.selectOption(2);
+        bibliotecaApp.selectOption();
 
         assertEquals(expectedOutput, outContent.toString().trim());
     }
+
 }
