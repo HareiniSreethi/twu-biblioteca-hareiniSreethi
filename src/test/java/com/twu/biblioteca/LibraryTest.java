@@ -74,12 +74,25 @@ class LibraryTest {
     void shouldBeAbleToReturnABook() {
         Library library = new Library();
         String expected = "Thank you! Enjoy the book\n" +
+                "Thank you for returning the book\n" +
                 "Shawshank Redemption | Stephen King | 1982\n" +
                 "Pride and Prejudice | Jane Austen | 1813";
 
         library.checkoutBook("Shawshank Redemption");
         library.returnBook("Shawshank Redemption");
         library.viewAvailableBooks();
+
+        assertEquals(expected, outContent.toString().trim());
+    }
+
+    @Test
+    void shouldDisplayNotificationOnSuccessfulReturnOfBook() {
+        Library library = new Library();
+        String expected = "Thank you! Enjoy the book\n" +
+                "Thank you for returning the book";
+
+        library.checkoutBook("Shawshank Redemption");
+        library.returnBook("Shawshank Redemption");
 
         assertEquals(expected, outContent.toString().trim());
     }

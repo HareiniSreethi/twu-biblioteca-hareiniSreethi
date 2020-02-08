@@ -40,6 +40,7 @@ public class Library {
         Book returnBook = new Book(bookName);
         if (checkedoutBooks.contains(returnBook)){
             checkedoutBooks.remove(returnBook);
+            System.out.println("Thank you for returning the book");
         }
     }
 }
