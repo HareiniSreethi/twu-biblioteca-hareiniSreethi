@@ -5,10 +5,14 @@ import java.util.Arrays;
 public class BibliotecaApp {
 
     public static void main(String[] args) {
+        Boolean isRunning = true;
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
         bibliotecaApp.displayWelcomeMessage();
-        bibliotecaApp.displayMenuOptions();
-        bibliotecaApp.selectOption();
+
+        while(isRunning){
+            bibliotecaApp.displayMenuOptions();
+            bibliotecaApp.selectOption();
+        }
     }
 
     public void displayWelcomeMessage() {
@@ -30,6 +34,5 @@ public class BibliotecaApp {
         UserInput userInput = new UserInput();
         userInput.getOption();
     }
-
 }
 

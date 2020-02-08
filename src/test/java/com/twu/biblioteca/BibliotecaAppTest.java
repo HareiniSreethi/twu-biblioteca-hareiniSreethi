@@ -80,7 +80,7 @@ class BibliotecaAppTest {
     @Test
     void shouldDisplayNotificationWhenInvalidOptionIsSelected() {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
-        String option = "2";
+        String option = "3";
         System.setIn(new ByteArrayInputStream(option.getBytes()));
         String expectedOutput = "Please select a valid option!";
 

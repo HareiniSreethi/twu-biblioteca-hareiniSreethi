@@ -45,7 +45,7 @@ class UserInputTest {
 
     @Test
     void shouldDisplayNotificationWhenInvalidOptionIsSelected() {
-        String option = "2";
+        String option = "8";
         System.setIn(new ByteArrayInputStream(option.getBytes()));
         UserInput userInput = new UserInput();
         String expectedOutput = "Please select a valid option!";
