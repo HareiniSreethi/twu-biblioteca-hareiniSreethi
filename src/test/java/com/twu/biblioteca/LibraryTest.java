@@ -29,11 +29,11 @@ class LibraryTest {
 
     @Test
     void shouldBeAbleToDisplayNameOfBooksAvailable() {
-        Book bookOne = new Book("Wings of Fire");
-        Book bookTwo = new Book("Runaway Jury");
-
+        Book bookOne = new Book("Wings of Fire", "Abdul Kalam A.P.J.", "1999");
+        Book bookTwo = new Book("Runaway Jury", "John Grisham", "1996");
         Library library = new Library(of(bookOne, bookTwo));
-        String expected = "Wings of Fire\n" + "Runaway Jury";
+        String expected = "Wings of Fire" + " | " + "Abdul Kalam A.P.J." + " | " + "1999" +
+                "\n" + "Runaway Jury" + " | " + "John Grisham" + " | " + "1996";
 
         library.viewAvailableBooks();
 

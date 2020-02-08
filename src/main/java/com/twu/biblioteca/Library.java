@@ -2,7 +2,6 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Library {
     List<Book> availableBooks = new ArrayList<>();
@@ -13,7 +12,7 @@ public class Library {
 
     public void viewAvailableBooks() {
         for (Book book: availableBooks) {
-            book.viewBookName();
+            book.viewBookDetails();
         }
     }
 }
