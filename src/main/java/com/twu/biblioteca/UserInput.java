@@ -20,6 +20,12 @@ public class UserInput {
                 library.checkoutBook(bookName.trim());
                 break;
             case 3:
+                System.out.println("\nEnter book name to return : ");
+                Scanner scan = new Scanner(System.in);
+                String returnBookName = scan.nextLine();
+                library.returnBook(returnBookName.trim());
+                break;
+            case 4:
                 System.exit(0);
             default:
                 System.out.println("Please select a valid option!");
