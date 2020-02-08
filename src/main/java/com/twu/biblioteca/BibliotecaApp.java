@@ -17,7 +17,7 @@ public class BibliotecaApp {
     }
 
     public void displayMenuOptions() {
-        Menu menu = new Menu(Arrays.asList("List of Books"));
+        Menu menu = new Menu(Arrays.asList("List of Books", "Quit"));
         menu.displayMenuOptions();
     }
 

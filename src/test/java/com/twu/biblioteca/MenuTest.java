@@ -30,8 +30,20 @@ class MenuTest {
     @Test
     void shouldDisplayTheListOfMenuOptions() {
         Menu menu = new Menu(Arrays.asList("List of Books"));
+        String expectedOutput = "1. List of Books";
         menu.displayMenuOptions();
 
-        assertEquals("1. List of Books", outContent.toString().trim());
+        assertEquals(expectedOutput, outContent.toString().trim());
+    }
+
+    @Test
+    void shouldDisplayTheListOfMenuOptionsWithQuit() {
+        Menu menu = new Menu(Arrays.asList("List of Books", "Quit"));
+        String expectedOutput = "1. List of Books\n" +
+                "2. Quit";
+
+        menu.displayMenuOptions();
+
+        assertEquals(expectedOutput, outContent.toString().trim());
     }
 }

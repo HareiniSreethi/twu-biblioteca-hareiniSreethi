@@ -58,7 +58,7 @@ class BibliotecaAppTest {
 
         bibliotecaApp.displayMenuOptions();
 
-        assertEquals("1. List of Books", outContent.toString().trim());
+        assertEquals("1. List of Books\n" + "2. Quit", outContent.toString().trim());
     }
 
     @Test
@@ -68,6 +68,7 @@ class BibliotecaAppTest {
         System.setIn(new ByteArrayInputStream(option.getBytes()));
         String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
                 "1. List of Books\n" +
+                "2. Quit\n" +
                 "Shawshank Redemption | Stephen King | 1982\n" +
                 "Pride and Prejudice | Jane Austen | 1813";
 
@@ -85,6 +86,7 @@ class BibliotecaAppTest {
         System.setIn(new ByteArrayInputStream(option.getBytes()));
         String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
                 "1. List of Books\n" +
+                "2. Quit\n" +
                 "Please select a valid option!";
 
         bibliotecaApp.displayWelcomeMessage();
@@ -93,5 +95,4 @@ class BibliotecaAppTest {
 
         assertEquals(expectedOutput, outContent.toString().trim());
     }
-
 }
