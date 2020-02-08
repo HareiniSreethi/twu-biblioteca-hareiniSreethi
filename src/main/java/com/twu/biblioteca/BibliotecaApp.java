@@ -10,7 +10,9 @@ public class BibliotecaApp {
         bibliotecaApp.displayWelcomeMessage();
 
         while (isRunning) {
+            System.out.println();
             bibliotecaApp.displayMenuOptions();
+            System.out.println("Select an option from menu");
             bibliotecaApp.selectOption();
         }
     }
