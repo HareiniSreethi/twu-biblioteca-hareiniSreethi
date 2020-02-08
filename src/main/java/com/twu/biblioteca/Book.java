@@ -13,6 +13,10 @@ public class Book {
         this.publicationYear = publicationYear;
     }
 
+    public Book(String bookName) {
+        this.name = bookName;
+    }
+
     public void viewBookDetails() {
         System.out.println(this.name + " | " + this.author + " | " + this.publicationYear);
     }
@@ -22,9 +26,7 @@ public class Book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return Objects.equals(name, book.name) &&
-                Objects.equals(author, book.author) &&
-                Objects.equals(publicationYear, book.publicationYear);
+        return Objects.equals(name, book.name);
     }
 
     @Override
