@@ -23,10 +23,7 @@ public class BibliotecaApp {
     }
 
     public void displayAvailableBooks() {
-        Book bookOne = new Book("Shawshank Redemption", "Stephen King", "1982");
-        Book bookTwo = new Book("Pride and Prejudice", "Jane Austen", "1813");
-        Library library = new Library(Arrays.asList(bookOne, bookTwo));
-
+        Library library = new Library();
         library.viewAvailableBooks();
     }
 
