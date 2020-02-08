@@ -55,4 +55,19 @@ class BibliotecaAppTest {
 
         assertEquals("1. List of Books", outContent.toString().trim());
     }
+
+    @Test
+    void shouldDisplayWelcomeMessageWithMenuOptionsToViewListOfBooksAfterSelection() {
+        BibliotecaApp bibliotecaApp = new BibliotecaApp();
+        String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
+                "1. List of Books\n" +
+                "Shawshank Redemption | Stephen King | 1982\n" +
+                "Pride and Prejudice | Jane Austen | 1813";
+
+        bibliotecaApp.displayWelcomeMessage();
+        bibliotecaApp.displayMenuOptions();
+        bibliotecaApp.displayAvailableBooks();
+
+        assertEquals(expectedOutput, outContent.toString().trim());
+    }
 }
