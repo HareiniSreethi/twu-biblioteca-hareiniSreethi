@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.sql.ClientInfoStatus;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -15,12 +15,17 @@ class LibraryTest {
 
     private ByteArrayOutputStream outContent;
     private PrintStream originalOut;
+    private Library library;
 
     @BeforeEach
     public void setUp() {
         outContent = new ByteArrayOutputStream();
         originalOut = System.out;
         System.setOut(new PrintStream(outContent));
+
+        Book bookOne = new Book("Shawshank Redemption", "Stephen King", "1982");
+        Book bookTwo = new Book("Pride and Prejudice", "Jane Austen", "1813");
+        library = new Library(Arrays.asList(bookOne, bookTwo));
     }
 
     @AfterEach
@@ -30,7 +35,6 @@ class LibraryTest {
 
     @Test
     void shouldBeAbleToDisplayNameOfBooksAvailable() {
-        Library library = new Library();
         String expected = "Shawshank Redemption | Stephen King | 1982\n" +
                 "Pride and Prejudice | Jane Austen | 1813";
 
@@ -41,7 +45,6 @@ class LibraryTest {
 
     @Test
     void shouldBeAbleToCheckoutABookFromLibrary() {
-        Library library = new Library();
         String expected = "Thank you! Enjoy the book\n" + "Pride and Prejudice | Jane Austen | 1813";
 
         library.checkoutBook("Shawshank Redemption");
@@ -52,7 +55,6 @@ class LibraryTest {
 
     @Test
     void shouldDisplayANotificationOnSuccessfulBookCheckout() {
-        Library library = new Library();
         String expected = "Thank you! Enjoy the book";
 
         library.checkoutBook("Shawshank Redemption");
@@ -62,7 +64,6 @@ class LibraryTest {
 
     @Test
     void shouldDisplayUnSuccessfulMessageWhenBookIsNotAvailableForCheckout() {
-        Library library = new Library();
         String expected = "Sorry, that book is not available";
 
         library.checkoutBook("Harry Potter");
@@ -72,7 +73,6 @@ class LibraryTest {
 
     @Test
     void shouldBeAbleToReturnABook() {
-        Library library = new Library();
         String expected = "Thank you! Enjoy the book\n" +
                 "Thank you for returning the book\n" +
                 "Shawshank Redemption | Stephen King | 1982\n" +
@@ -87,7 +87,6 @@ class LibraryTest {
 
     @Test
     void shouldDisplayNotificationOnSuccessfulReturnOfBook() {
-        Library library = new Library();
         String expected = "Thank you! Enjoy the book\n" +
                 "Thank you for returning the book";
 
@@ -99,7 +98,6 @@ class LibraryTest {
 
     @Test
     void shouldDisplayWarningNotificationOnUnsuccessfulReturnOfBook() {
-        Library library = new Library();
         String expected = "That is not a valid book to return";
 
         library.returnBook("abc");

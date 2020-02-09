@@ -8,6 +8,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -16,6 +17,8 @@ class UserInputTest {
     private ByteArrayOutputStream outContent;
     private PrintStream originalOut;
     private InputStream originalIn;
+    private Library library;
+    private UserInput userInput;
 
     @BeforeEach
     public void setUp() {
@@ -23,6 +26,10 @@ class UserInputTest {
         originalIn = System.in;
         originalOut = System.out;
         System.setOut(new PrintStream(outContent));
+        Book bookOne = new Book("Shawshank Redemption", "Stephen King", "1982");
+        Book bookTwo = new Book("Pride and Prejudice", "Jane Austen", "1813");
+        library = new Library(Arrays.asList(bookOne, bookTwo));
+        userInput = new UserInput(library);
     }
 
     @AfterEach
@@ -34,7 +41,6 @@ class UserInputTest {
     void shouldDisplayAvailableBooksOnOptionOne() {
         String option = "1";
         System.setIn(new ByteArrayInputStream(option.getBytes()));
-        UserInput userInput = new UserInput();
         String expectedOutput = "Shawshank Redemption | Stephen King | 1982\n" +
                 "Pride and Prejudice | Jane Austen | 1813";
 
@@ -47,7 +53,6 @@ class UserInputTest {
     void shouldDisplayNotificationWhenInvalidOptionIsSelected() {
         String option = "8";
         System.setIn(new ByteArrayInputStream(option.getBytes()));
-        UserInput userInput = new UserInput();
         String expectedOutput = "Please select a valid option!";
 
         userInput.getOption();

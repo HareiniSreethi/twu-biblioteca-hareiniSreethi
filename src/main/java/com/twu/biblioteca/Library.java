@@ -4,14 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Library {
-    List<Book> availableBooks = new ArrayList<>();
+    List<Book> availableBooks;
     List<Book> checkedoutBooks = new ArrayList<>();
 
-    public Library() {
-        Book bookOne = new Book("Shawshank Redemption", "Stephen King", "1982");
-        Book bookTwo = new Book("Pride and Prejudice", "Jane Austen", "1813");
-        this.availableBooks.add(bookOne);
-        this.availableBooks.add(bookTwo);
+    public Library(List<Book> availableBooks) {
+        this.availableBooks = availableBooks;
     }
 
     public void viewAvailableBooks() {

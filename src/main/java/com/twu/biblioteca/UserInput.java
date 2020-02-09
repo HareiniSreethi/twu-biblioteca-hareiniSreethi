@@ -3,7 +3,12 @@ package com.twu.biblioteca;
 import java.util.Scanner;
 
 public class UserInput {
-    Library library = new Library();
+    private Library library;
+
+
+    public UserInput(Library library) {
+        this.library = library;
+    }
 
     public void getOption() {
         Scanner in = new Scanner(System.in);
