@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -15,15 +15,19 @@ class UserInputTest {
 
     private ByteArrayOutputStream outContent;
     private PrintStream originalOut;
-    private InputStream originalIn;
+    private UserInput userInput;
 
     @BeforeEach
     public void setUp() {
         outContent = new ByteArrayOutputStream();
-        originalIn = System.in;
         originalOut = System.out;
         System.setOut(new PrintStream(outContent));
+        Book bookOne = new Book("Shawshank Redemption", "Stephen King", "1982");
+        Book bookTwo = new Book("Pride and Prejudice", "Jane Austen", "1813");
+        Library library = new Library(Arrays.asList(bookOne, bookTwo));
+        userInput = new UserInput(library);
     }
+
 
     @AfterEach
     public void restoreStreams() {
@@ -34,7 +38,6 @@ class UserInputTest {
     void shouldDisplayAvailableBooksOnOptionOne() {
         String option = "1";
         System.setIn(new ByteArrayInputStream(option.getBytes()));
-        UserInput userInput = new UserInput();
         String expectedOutput = "Shawshank Redemption | Stephen King | 1982\n" +
                 "Pride and Prejudice | Jane Austen | 1813";
 
@@ -47,7 +50,6 @@ class UserInputTest {
     void shouldDisplayNotificationWhenInvalidOptionIsSelected() {
         String option = "8";
         System.setIn(new ByteArrayInputStream(option.getBytes()));
-        UserInput userInput = new UserInput();
         String expectedOutput = "Please select a valid option!";
 
         userInput.getOption();
@@ -61,7 +63,7 @@ class UserInputTest {
         System.setIn(new ByteArrayInputStream(option.getBytes()));
         String expectedOutput = "Enter book name to check out : \n" +
                 "Thank you! Enjoy the book";
-        UserInput userInput = new UserInput();
+
         userInput.getOption();
 
         assertEquals(expectedOutput, outContent.toString().trim());
@@ -73,7 +75,7 @@ class UserInputTest {
         System.setIn(new ByteArrayInputStream(option.getBytes()));
         String expectedOutput = "Enter book name to check out : \n" +
                 "Sorry, that book is not available";
-        UserInput userInput = new UserInput();
+
         userInput.getOption();
 
         assertEquals(expectedOutput, outContent.toString().trim());
@@ -85,7 +87,7 @@ class UserInputTest {
         System.setIn(new ByteArrayInputStream(option.getBytes()));
         String expectedOutput = "Enter book name to return : \n" +
                 "That is not a valid book to return";
-        UserInput userInput = new UserInput();
+
         userInput.getOption();
 
         assertEquals(expectedOutput, outContent.toString().trim());

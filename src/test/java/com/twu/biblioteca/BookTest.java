@@ -27,11 +27,11 @@ class BookTest {
     }
 
     @Test
-    void shouldCheckIfTwoBooksAreTheSame() {
+    void shouldCheckIfTwoBooksAreTheSame() { // TODO - equals not tested enough? Why?
         Book book = new Book("Harry Potter and The Sorcerer's Stone", "Rowling J.K.", "2001");
         Book expected = new Book("Harry Potter and The Sorcerer's Stone", "Rowling J.K.", "2001");
 
-        assertEquals(expected, book);
+        assertEquals(expected, book); // TODO - at this point in time, just return true will work
     }
 
     @Test
@@ -41,7 +41,7 @@ class BookTest {
 
         book.viewBookDetails();
 
-        assertEquals(expected, outContent.toString().trim());
+        assertEquals(expected, outContent.toString().trim()); // TODO - why trim? So instead of fixing the actual or fixing the expected.... we ignored the problem? Apple flies up.
     }
 
 
