@@ -43,6 +43,6 @@ public class Library {
     }
 
     public void checkoutBookByAuthor(String author) {
-        Book book = new Book(null, author, null); // TODO - 1. equals is broken (implementation problem as of now). 2.
+        Book book = new Book(null, author, null); // TODO - 1. equals is broken (implementation problem as of now). 2.-DONE
     }
 }
