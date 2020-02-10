@@ -40,7 +40,7 @@ public class BibliotecaApp {
         Book bookOne = new Book("Shawshank Redemption", "Stephen King", "1982");
         Book bookTwo = new Book("Pride and Prejudice", "Jane Austen", "1813");
         Library library = new Library(Arrays.asList(bookOne, bookTwo));
-        UserInput userInput = new UserInput(library, new Strategy(library));
+        UserInput userInput = new UserInput(new Strategy(library));
         Menu menu = new Menu();
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(userInput, library, menu);

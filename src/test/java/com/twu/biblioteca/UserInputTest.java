@@ -26,7 +26,7 @@ class UserInputTest {
         Book bookOne = new Book("Shawshank Redemption", "Stephen King", "1982");
         Book bookTwo = new Book("Pride and Prejudice", "Jane Austen", "1813");
         Library library = new Library(Arrays.asList(bookOne, bookTwo));
-        userInput = new UserInput(library,new Strategy(library));
+        userInput = new UserInput(new Strategy(library));
     }
 
 
