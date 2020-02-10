@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.MenuStrategy.Strategy;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,7 +26,7 @@ class UserInputTest {
         Book bookOne = new Book("Shawshank Redemption", "Stephen King", "1982");
         Book bookTwo = new Book("Pride and Prejudice", "Jane Austen", "1813");
         Library library = new Library(Arrays.asList(bookOne, bookTwo));
-        userInput = new UserInput(library);
+        userInput = new UserInput(library,new Strategy(library));
     }
 
 
@@ -41,7 +42,7 @@ class UserInputTest {
         String expectedOutput = "Shawshank Redemption | Stephen King | 1982\n" +
                 "Pride and Prejudice | Jane Austen | 1813";
 
-        userInput.getOption();
+        userInput.selectMenuOption();
 
         assertEquals(expectedOutput, outContent.toString().trim());
     }
@@ -52,7 +53,7 @@ class UserInputTest {
         System.setIn(new ByteArrayInputStream(option.getBytes()));
         String expectedOutput = "Please select a valid option!";
 
-        userInput.getOption();
+        userInput.selectMenuOption();
 
         assertEquals(expectedOutput, outContent.toString().trim());
     }
@@ -64,7 +65,7 @@ class UserInputTest {
         String expectedOutput = "Enter book name to check out : \n" +
                 "Thank you! Enjoy the book";
 
-        userInput.getOption();
+        userInput.selectMenuOption();
 
         assertEquals(expectedOutput, outContent.toString().trim());
     }
@@ -76,7 +77,7 @@ class UserInputTest {
         String expectedOutput = "Enter book name to check out : \n" +
                 "Sorry, that book is not available";
 
-        userInput.getOption();
+        userInput.selectMenuOption();
 
         assertEquals(expectedOutput, outContent.toString().trim());
     }
@@ -88,7 +89,7 @@ class UserInputTest {
         String expectedOutput = "Enter book name to return : \n" +
                 "That is not a valid book to return";
 
-        userInput.getOption();
+        userInput.selectMenuOption();
 
         assertEquals(expectedOutput, outContent.toString().trim());
     }
