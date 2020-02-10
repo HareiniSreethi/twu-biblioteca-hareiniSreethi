@@ -31,9 +31,10 @@ class MenuTest {
     void shouldDisplayTheListOfMenuOptions() {
         Menu menu = new Menu();
         String expectedOutput = "1. List of Books\n" +
-                "2. Checkout book\n" +
+                "2. Checkout Book\n" +
                 "3. Return Book\n" +
                 "4. Quit";
+
         menu.displayMenuOptions();
 
         assertEquals(expectedOutput, outContent.toString().trim());
