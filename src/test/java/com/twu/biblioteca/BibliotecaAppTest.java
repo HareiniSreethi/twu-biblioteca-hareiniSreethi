@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -16,14 +15,12 @@ class BibliotecaAppTest {
 
     private ByteArrayOutputStream outContent;
     private PrintStream originalOut;
-    private InputStream originalIn;
 
 
     @BeforeEach
     public void setUp() {
         outContent = new ByteArrayOutputStream();
         originalOut = System.out;
-        originalIn = System.in;
         System.setOut(new PrintStream(outContent));
     }
 

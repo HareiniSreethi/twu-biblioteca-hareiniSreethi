@@ -1,18 +1,15 @@
 package com.twu.biblioteca;
 
-import java.util.Arrays;
-
 public class BibliotecaApp {
     UserInput userInput = new UserInput();
     Menu menu = new Menu();
     Library library = new Library();
 
     public static void main(String[] args) {
-        Boolean isRunning = true;
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
         bibliotecaApp.displayWelcomeMessage();
 
-        while (isRunning) {
+        while (true) {
             System.out.println();
             bibliotecaApp.displayMenuOptions();
             System.out.println("Select an option from menu");
