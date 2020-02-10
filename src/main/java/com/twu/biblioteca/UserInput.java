@@ -7,22 +7,20 @@ public class UserInput {
 
     public void getOption() {
         Scanner in = new Scanner(System.in);
-        int option = in.nextInt();
+        String option = in.nextLine();
 
-        switch (option) {
+        switch (Integer.parseInt(option)) {
             case 1:
                 library.viewAvailableBooks();
                 break;
             case 2:
                 System.out.println("\nEnter book name to check out : ");
-                Scanner scanner = new Scanner(System.in);
-                String bookName = scanner.nextLine();
+                String bookName = in.nextLine();
                 library.checkoutBook(bookName.trim());
                 break;
             case 3:
                 System.out.println("\nEnter book name to return : ");
-                Scanner scan = new Scanner(System.in);
-                String returnBookName = scan.nextLine();
+                String returnBookName = in.nextLine();
                 library.returnBook(returnBookName.trim());
                 break;
             case 4:

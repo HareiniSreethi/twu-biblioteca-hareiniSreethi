@@ -54,4 +54,16 @@ class UserInputTest {
 
         assertEquals(expectedOutput, outContent.toString().trim());
     }
+
+    @Test
+    void shouldBeAbleToCheckOutABook() {
+        String option = "2\nPride and Prejudice";
+        System.setIn(new ByteArrayInputStream(option.getBytes()));
+        String expectedOutput = "Enter book name to check out : \n" +
+                "Thank you! Enjoy the book";
+        UserInput userInput = new UserInput();
+        userInput.getOption();
+
+        assertEquals(expectedOutput, outContent.toString().trim());
+    }
 }
