@@ -66,4 +66,16 @@ class UserInputTest {
 
         assertEquals(expectedOutput, outContent.toString().trim());
     }
+
+    @Test
+    void shouldNotifyOnUnsuccessfulCheckoutOfABook() {
+        String option = "2\nHello";
+        System.setIn(new ByteArrayInputStream(option.getBytes()));
+        String expectedOutput = "Enter book name to check out : \n" +
+                "Sorry, that book is not available";
+        UserInput userInput = new UserInput();
+        userInput.getOption();
+
+        assertEquals(expectedOutput, outContent.toString().trim());
+    }
 }
