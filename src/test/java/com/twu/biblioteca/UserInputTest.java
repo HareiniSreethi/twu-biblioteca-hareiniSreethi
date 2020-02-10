@@ -78,4 +78,16 @@ class UserInputTest {
 
         assertEquals(expectedOutput, outContent.toString().trim());
     }
+
+    @Test
+    void shouldBeAbleToNotifyOnSuccessfulReturnOfCheckedOutBook() {
+        String option = "3\nPride and Prejudice";
+        System.setIn(new ByteArrayInputStream(option.getBytes()));
+        String expectedOutput = "Enter book name to return : \n" +
+                "That is not a valid book to return";
+        UserInput userInput = new UserInput();
+        userInput.getOption();
+
+        assertEquals(expectedOutput, outContent.toString().trim());
+    }
 }
