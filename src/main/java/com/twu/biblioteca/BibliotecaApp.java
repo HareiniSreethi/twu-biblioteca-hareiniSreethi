@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.MenuStrategy.Strategy;
+
 import java.util.Arrays;
 
 // TODO
@@ -30,7 +32,7 @@ public class BibliotecaApp {
     }
 
     public void selectOption() {
-        userInput.getOption();
+        userInput.selectMenuOption();
     }
 
     public static void main(String[] args) {
@@ -38,7 +40,7 @@ public class BibliotecaApp {
         Book bookOne = new Book("Shawshank Redemption", "Stephen King", "1982");
         Book bookTwo = new Book("Pride and Prejudice", "Jane Austen", "1813");
         Library library = new Library(Arrays.asList(bookOne, bookTwo));
-        UserInput userInput = new UserInput(library);
+        UserInput userInput = new UserInput(library, new Strategy(library));
         Menu menu = new Menu();
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(userInput, library, menu);
