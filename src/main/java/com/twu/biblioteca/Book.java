@@ -17,12 +17,12 @@ public class Book {
     // TODO - doesn't make sense to create book with just a name. - Because any behavior dependent on other fields will fail. - DONE (removed constructor)
 
     public void viewBookDetails() { // TODO - global dependency - code smell. We fix it by - ???
-        String columnSeparator = "|";
+        String columnSeparator = " | ";
         System.out.println(this.name + columnSeparator + this.author + columnSeparator + this.publicationYear); // TODO - magic literals - DONE
     }
 
-//    @Override // TODO - this is not gonna work - How will we add find the book by author? - Take your time and come back.
-//    public boolean equals(Object otherBook) { // TODO - think what are the problem with this approach? How would you compare authors or years?
+//    @Override // TODO - this is not gonna work - How will we add find the book by author? - Take your time and come back. -DONE
+//    public boolean equals(Object otherBook) { // TODO - think what are the problem with this approach? How would you compare authors or years? - DONE
 //        if (this == otherBook) return true;
 //        if (otherBook == null || getClass() != otherBook.getClass()) return false;
 //        Book book = (Book) otherBook; // TODO - I'll probably call it "other" or "otherBook" - Because java equals / comparator conventions. - DONE
