@@ -35,7 +35,7 @@ class MenuTest {
                 "3. Return Book\n" +
                 "4. Quit";
 
-        menu.displayMenuOptions();
+        menu.displayOptions();
 
         assertEquals(expectedOutput, outContent.toString().trim());
     }

@@ -24,7 +24,7 @@ public class BibliotecaApp {
     }
 
     public void displayMenuOptions() {
-        menu.displayMenuOptions();
+        menu.displayOptions();
     }
 
     public void displayAvailableBooks() {
