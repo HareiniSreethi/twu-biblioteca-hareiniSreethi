@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.MenuStrategy.Strategy;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -28,7 +29,7 @@ class BibliotecaAppTest {
         Book bookOne = new Book("Shawshank Redemption", "Stephen King", "1982");
         Book bookTwo = new Book("Pride and Prejudice", "Jane Austen", "1813");
         Library library = new Library(Arrays.asList(bookOne, bookTwo));
-        UserInput userInput = new UserInput(library);
+        UserInput userInput = new UserInput(library, new Strategy(library));
         Menu menu = new Menu();
         bibliotecaApp = new BibliotecaApp(userInput, library, menu);
     }
