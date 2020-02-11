@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -102,5 +103,22 @@ class LibraryTest {
         library.returnBook("abc");
 
         assertEquals(expected, outContent.toString());
+    }
+
+    @Test
+    void shouldBeAbleToViewListOfAvailableMovies() {
+        Movie movieOne = new Movie("Titanic", "1997", "James Cameron", "8");
+        Movie movieTwo = new Movie("Joker", "2019", "Todd Phillips", "9");
+        Movie movieThree =  new Movie("Jumanji", "1995", "Joe Johnston", "7");
+        List<Movie> moviesList = Arrays.asList(movieOne,movieTwo, movieThree);
+
+        String expectedOutput = "Titanic | 1997 | James Cameron | 8\n" +
+                "Joker | 2019 | Todd Phillips | 9\n" +
+                "Jumanji | 1995 | Joe Johnston | 7\n";
+
+        library.addMovies(moviesList);
+        library.viewAvailableMovies();
+
+        assertEquals(expectedOutput, outContent.toString());
     }
 }
