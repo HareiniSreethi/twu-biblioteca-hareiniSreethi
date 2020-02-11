@@ -27,11 +27,11 @@ class BookTest {
     }
 
     @Test
-    void shouldCheckIfTwoBooksAreTheSame() { // TODO - equals not tested enough? Why?
+    void shouldCheckIfTwoBooksAreTheSame() { // TODO - equals not tested enough? Why? -DONE
         Book book = new Book("Harry Potter and The Sorcerer's Stone", "Rowling J.K.", "2001");
         Book expected = new Book("Harry Potter and The Sorcerer's Stone", "Rowling J.K.", "2001");
 
-        assertEquals(expected, book); // TODO - at this point in time, just return true will work
+        assertEquals(expected, book); // TODO - at this point in time, just return true will work - DONE
     }
 
     @Test
