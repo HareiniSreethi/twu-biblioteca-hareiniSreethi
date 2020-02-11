@@ -35,39 +35,39 @@ class LibraryTest {
     @Test
     void shouldBeAbleToDisplayNameOfBooksAvailable() {
         String expected = "Shawshank Redemption | Stephen King | 1982\n" +
-                "Pride and Prejudice | Jane Austen | 1813"; // TODO - how do I know that this is expected? Why is this expected?
+                "Pride and Prejudice | Jane Austen | 1813\n"; // TODO - how do I know that this is expected? Why is this expected?
 
         library.viewAvailableBooks();
 
-        assertEquals(expected, outContent.toString().trim());
+        assertEquals(expected, outContent.toString());
     }
 
     @Test
     void shouldBeAbleToCheckoutABookFromLibrary() {
-        String expected = "Thank you! Enjoy the book\n" + "Pride and Prejudice | Jane Austen | 1813";
+        String expected = "Thank you! Enjoy the book\n" + "Pride and Prejudice | Jane Austen | 1813\n";
 
         library.checkoutBook("Shawshank Redemption");
         library.viewAvailableBooks();
 
-        assertEquals(expected, outContent.toString().trim());
+        assertEquals(expected, outContent.toString());
     }
 
     @Test
     void shouldDisplayANotificationOnSuccessfulBookCheckout() {
-        String expected = "Thank you! Enjoy the book";
+        String expected = "Thank you! Enjoy the book\n";
 
         library.checkoutBook("Shawshank Redemption");
 
-        assertTrue(outContent.toString().trim().contains(expected));
+        assertTrue(outContent.toString().contains(expected));
     }
 
     @Test
     void shouldDisplayUnSuccessfulMessageWhenBookIsNotAvailableForCheckout() {
-        String expected = "Sorry, that book is not available";
+        String expected = "Sorry, that book is not available\n";
 
         library.checkoutBook("Harry Potter");
 
-        assertTrue(outContent.toString().trim().contains(expected));
+        assertTrue(outContent.toString().contains(expected));
     }
 
     @Test
@@ -75,32 +75,32 @@ class LibraryTest {
         String expected = "Thank you! Enjoy the book\n" +
                 "Thank you for returning the book\n" +
                 "Shawshank Redemption | Stephen King | 1982\n" +
-                "Pride and Prejudice | Jane Austen | 1813";
+                "Pride and Prejudice | Jane Austen | 1813\n";
 
         library.checkoutBook("Shawshank Redemption");
         library.returnBook("Shawshank Redemption");
         library.viewAvailableBooks();
 
-        assertEquals(expected, outContent.toString().trim());
+        assertEquals(expected, outContent.toString());
     }
 
     @Test
     void shouldDisplayNotificationOnSuccessfulReturnOfBook() {
         String expected = "Thank you! Enjoy the book\n" +
-                "Thank you for returning the book";
+                "Thank you for returning the book\n";
 
         library.checkoutBook("Shawshank Redemption");
         library.returnBook("Shawshank Redemption");
 
-        assertEquals(expected, outContent.toString().trim());
+        assertEquals(expected, outContent.toString());
     }
 
     @Test
     void shouldDisplayWarningNotificationOnUnsuccessfulReturnOfBook() {
-        String expected = "That is not a valid book to return";
+        String expected = "That is not a valid book to return\n";
 
         library.returnBook("abc");
 
-        assertEquals(expected, outContent.toString().trim());
+        assertEquals(expected, outContent.toString());
     }
 }
