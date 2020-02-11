@@ -44,26 +44,26 @@ class BibliotecaAppTest {
     void shouldDisplayWelcomeMessageWhenApplicationStarts() {
         bibliotecaApp.displayWelcomeMessage();
 
-        assertEquals("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!", outContent.toString().trim());
+        assertEquals("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n", outContent.toString());
     }
 
     @Test
     void shouldDisplayListOfAvailableBooksAfterWelcomeMessage() {
         String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
                 "Shawshank Redemption | Stephen King | 1982\n" +
-                "Pride and Prejudice | Jane Austen | 1813";
+                "Pride and Prejudice | Jane Austen | 1813\n";
 
         bibliotecaApp.displayWelcomeMessage();
         bibliotecaApp.displayAvailableBooks();
 
-        assertEquals(expectedOutput, outContent.toString().trim());
+        assertEquals(expectedOutput, outContent.toString());
     }
 
     @Test
     void shouldDisplayMenuOptionsToViewListOfBooks() {
         bibliotecaApp.displayMenuOptions();
 
-        assertEquals("1. List of Books\n" + "2. Checkout Book\n" + "3. Return Book\n" + "4. Quit", outContent.toString().trim());
+        assertEquals("1. List of Books\n" + "2. Checkout Book\n" + "3. Return Book\n" + "4. Quit\n", outContent.toString());
     }
 
     @Test
@@ -71,26 +71,26 @@ class BibliotecaAppTest {
         String option = "1";
         System.setIn(new ByteArrayInputStream(option.getBytes()));
         String expectedOutput = "Shawshank Redemption | Stephen King | 1982\n" +
-                "Pride and Prejudice | Jane Austen | 1813";
+                "Pride and Prejudice | Jane Austen | 1813\n";
 
         bibliotecaApp.displayWelcomeMessage();
         bibliotecaApp.displayMenuOptions();
         bibliotecaApp.selectOption();
 
-        assertTrue(outContent.toString().trim().contains(expectedOutput));
+        assertTrue(outContent.toString().contains(expectedOutput));
     }
 
     @Test
     void shouldDisplayNotificationWhenInvalidOptionIsSelected() {
         String option = "8";
         System.setIn(new ByteArrayInputStream(option.getBytes()));
-        String expectedOutput = "Please select a valid option!";
+        String expectedOutput = "Please select a valid option!\n";
 
         bibliotecaApp.displayWelcomeMessage();
         bibliotecaApp.displayMenuOptions();
         bibliotecaApp.selectOption();
 
-        assertTrue(outContent.toString().trim().contains(expectedOutput));
+        assertTrue(outContent.toString().contains(expectedOutput));
     }
 
 }
