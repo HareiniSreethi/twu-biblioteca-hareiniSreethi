@@ -3,6 +3,8 @@ package com.twu.biblioteca;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.twu.biblioteca.CustomInputOutput.printOutput;
+
 public class Library {
     List<Book> availableBooks;
     List<Book> checkedoutBooks = new ArrayList<>();
@@ -26,8 +28,8 @@ public class Library {
                 .findFirst()
                 .ifPresentOrElse(book -> {
                     checkedoutBooks.add(book);
-                    System.out.println("Thank you! Enjoy the book");
-                }, () -> System.out.println("Sorry, that book is not available"));
+                    printOutput("Thank you! Enjoy the book");
+                }, () -> printOutput("Sorry, that book is not available"));
     }
 
 
@@ -37,8 +39,8 @@ public class Library {
                 .findFirst()
                 .ifPresentOrElse(book -> {
                     checkedoutBooks.remove(book);
-                    System.out.println("Thank you for returning the book");
-                }, () -> System.out.println("That is not a valid book to return"));
+                    printOutput("Thank you for returning the book");
+                }, () -> printOutput("That is not a valid book to return"));
 
     }
 }
