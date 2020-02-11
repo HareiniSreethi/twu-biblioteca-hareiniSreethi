@@ -37,11 +37,11 @@ class BookTest {
     @Test
     void shouldBeAbleToDisplayDetailsOfTheBook() {
         Book book = new Book("Harry Potter and The Sorcerer's Stone", "Rowling J.K.", "2001");
-        String expected = "Harry Potter and The Sorcerer's Stone | Rowling J.K. | 2001";
+        String expected = "Harry Potter and The Sorcerer's Stone | Rowling J.K. | 2001\n";
 
         book.viewBookDetails();
 
-        assertEquals(expected, outContent.toString().trim()); // TODO - why trim? So instead of fixing the actual or fixing the expected.... we ignored the problem? Apple flies up.
+        assertEquals(expected, outContent.toString()); // TODO - why trim? So instead of fixing the actual or fixing the expected.... we ignored the problem? Apple flies up.
     }
 
 

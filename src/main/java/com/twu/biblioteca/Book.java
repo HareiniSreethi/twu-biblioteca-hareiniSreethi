@@ -2,6 +2,8 @@ package com.twu.biblioteca;
 
 import java.util.Objects;
 
+import static com.twu.biblioteca.CustomInputOutput.printOutput;
+
 public class Book {
     private String name;
     private String author;
@@ -18,7 +20,7 @@ public class Book {
 
     public void viewBookDetails() { // TODO - global dependency - code smell. We fix it by - ???
         String columnSeparator = " | ";
-        System.out.println(this.name + columnSeparator + this.author + columnSeparator + this.publicationYear); // TODO - magic literals - DONE
+        printOutput(this.name + columnSeparator + this.author + columnSeparator + this.publicationYear); // TODO - magic literals - DONE
     }
 
 //    @Override // TODO - this is not gonna work - How will we add find the book by author? - Take your time and come back. -DONE
