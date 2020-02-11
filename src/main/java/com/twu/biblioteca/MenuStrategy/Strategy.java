@@ -5,6 +5,8 @@ import com.twu.biblioteca.*;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import static com.twu.biblioteca.CustomInputOutput.printOutput;
+
 public class Strategy {
     Library library;
     HashMap<Integer, MenuActions> optionMap = new HashMap<>();
@@ -23,7 +25,7 @@ public class Strategy {
             optionMap.get(option).performAction(library, scanner);
         }
         else{
-            System.out.println("Please select a valid option!");
+            printOutput("Please select a valid option!");
         }
     }
 
