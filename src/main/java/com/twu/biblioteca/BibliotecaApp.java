@@ -4,6 +4,8 @@ import com.twu.biblioteca.MenuStrategy.Strategy;
 
 import java.util.Arrays;
 
+import static com.twu.biblioteca.CustomInputOutput.printOutput;
+
 // TODO
 // TODO - how many library entities are in the running instance of this class? - DONE
 // TODO - who manages the lifecycle of those entities? - DONE
@@ -20,7 +22,7 @@ public class BibliotecaApp {
 
     public void displayWelcomeMessage() {
         String message = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
-        System.out.println(message);
+        printOutput(message);
     }
 
     public void displayMenuOptions() {
@@ -47,9 +49,9 @@ public class BibliotecaApp {
         bibliotecaApp.displayWelcomeMessage();
 
         while (isRunning) {
-            System.out.println();
+            printOutput("\n");
             bibliotecaApp.displayMenuOptions();
-            System.out.println("Select an option from menu");
+            printOutput("Select an option from menu");
             bibliotecaApp.selectOption();
         }
     }
