@@ -4,7 +4,8 @@ public enum MenuOptions {
     LIST_OF_BOOKS(1, "List of Books"),
     CHECKOUT_BOOKS(2, "Checkout Book"),
     RETURN_BOOKS(3, "Return Book"),
-    QUIT(4, "Quit");
+    LIST_OF_MOVIES(4, "List of Movies"),
+    QUIT(5, "Quit");
 
     private final int optionNumber;
     private final String optionValue;
