@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -33,11 +32,11 @@ class MenuTest {
         String expectedOutput = "1. List of Books\n" +
                 "2. Checkout Book\n" +
                 "3. Return Book\n" +
-                "4. Quit";
+                "4. Quit\n";
 
         menu.displayOptions();
 
-        assertEquals(expectedOutput, outContent.toString().trim());
+        assertEquals(expectedOutput, outContent.toString());
     }
 
 }

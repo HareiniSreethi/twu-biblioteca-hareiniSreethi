@@ -51,7 +51,7 @@ public class BibliotecaApp {
         while (isRunning) {
             printOutput("\n");
             bibliotecaApp.displayMenuOptions();
-            printOutput("Select an option from menu");
+            printOutput("\nSelect an option from menu");
             bibliotecaApp.selectOption();
         }
     }
