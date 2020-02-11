@@ -32,13 +32,13 @@ public class Library {
 
 
     public void returnBook(String bookName) {
-        for (Book book : checkedoutBooks) {
-            if (book.checkBookByName(bookName)) {
-                checkedoutBooks.remove(book);
-                System.out.println("Thank you for returning the book");
-                return;
-            }
-        }
-        System.out.println("That is not a valid book to return");
+        checkedoutBooks.stream()
+                .filter(book -> book.checkBookByName(bookName))
+                .findFirst()
+                .ifPresentOrElse(book -> {
+                    checkedoutBooks.remove(book);
+                    System.out.println("Thank you for returning the book");
+                }, () -> System.out.println("That is not a valid book to return"));
+
     }
 }
