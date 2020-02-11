@@ -40,22 +40,22 @@ class UserInputTest {
         String option = "1";
         System.setIn(new ByteArrayInputStream(option.getBytes()));
         String expectedOutput = "Shawshank Redemption | Stephen King | 1982\n" +
-                "Pride and Prejudice | Jane Austen | 1813";
+                "Pride and Prejudice | Jane Austen | 1813\n";
 
         userInput.selectMenuOption();
 
-        assertEquals(expectedOutput, outContent.toString().trim());
+        assertEquals(expectedOutput, outContent.toString());
     }
 
     @Test
     void shouldDisplayNotificationWhenInvalidOptionIsSelected() {
         String option = "8";
         System.setIn(new ByteArrayInputStream(option.getBytes()));
-        String expectedOutput = "Please select a valid option!";
+        String expectedOutput = "Please select a valid option!\n";
 
         userInput.selectMenuOption();
 
-        assertEquals(expectedOutput, outContent.toString().trim());
+        assertEquals(expectedOutput, outContent.toString());
     }
 
     @Test
@@ -63,11 +63,11 @@ class UserInputTest {
         String option = "2\nPride and Prejudice";
         System.setIn(new ByteArrayInputStream(option.getBytes()));
         String expectedOutput = "Enter book name to check out : \n" +
-                "Thank you! Enjoy the book";
+                "Thank you! Enjoy the book\n";
 
         userInput.selectMenuOption();
 
-        assertEquals(expectedOutput, outContent.toString().trim());
+        assertEquals(expectedOutput, outContent.toString());
     }
 
     @Test
@@ -75,11 +75,11 @@ class UserInputTest {
         String option = "2\nHello";
         System.setIn(new ByteArrayInputStream(option.getBytes()));
         String expectedOutput = "Enter book name to check out : \n" +
-                "Sorry, that book is not available";
+                "Sorry, that book is not available\n";
 
         userInput.selectMenuOption();
 
-        assertEquals(expectedOutput, outContent.toString().trim());
+        assertEquals(expectedOutput, outContent.toString());
     }
 
     @Test
@@ -87,10 +87,10 @@ class UserInputTest {
         String option = "3\nPride and Prejudice";
         System.setIn(new ByteArrayInputStream(option.getBytes()));
         String expectedOutput = "Enter book name to return : \n" +
-                "That is not a valid book to return";
+                "That is not a valid book to return\n";
 
         userInput.selectMenuOption();
 
-        assertEquals(expectedOutput, outContent.toString().trim());
+        assertEquals(expectedOutput, outContent.toString());
     }
 }

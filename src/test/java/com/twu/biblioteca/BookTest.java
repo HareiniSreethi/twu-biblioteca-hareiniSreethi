@@ -41,7 +41,7 @@ class BookTest {
 
         book.viewBookDetails();
 
-        assertEquals(expected, outContent.toString()); // TODO - why trim? So instead of fixing the actual or fixing the expected.... we ignored the problem? Apple flies up.
+        assertEquals(expected, outContent.toString()); // TODO - why trim? So instead of fixing the actual or fixing the expected.... we ignored the problem? Apple flies up. - DONE
     }
 
 
