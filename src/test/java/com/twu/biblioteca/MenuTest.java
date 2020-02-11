@@ -32,7 +32,8 @@ class MenuTest {
         String expectedOutput = "1. List of Books\n" +
                 "2. Checkout Book\n" +
                 "3. Return Book\n" +
-                "4. Quit\n";
+                "4. List of Movies\n" +
+                "5. Quit\n";
 
         menu.displayOptions();
 
