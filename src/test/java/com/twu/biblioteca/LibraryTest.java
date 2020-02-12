@@ -129,4 +129,13 @@ class LibraryTest {
 
         assertEquals(expected, outContent.toString());
     }
+
+    @Test
+    void shouldNotBeAbleToCheckOutUnavailableMovieFromLibrary() {
+        String expected = "Sorry, that movie is not available\n";
+
+        library.checkoutMovie("Hello");
+
+        assertEquals(expected, outContent.toString());
+    }
 }

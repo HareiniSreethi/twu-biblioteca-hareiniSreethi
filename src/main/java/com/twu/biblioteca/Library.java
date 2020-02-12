@@ -47,8 +47,8 @@ public class Library {
 
     }
 
-    public void viewAvailableMovies(){
-        for(Movie movie : availableMovies) {
+    public void viewAvailableMovies() {
+        for (Movie movie : availableMovies) {
             movie.viewMovieDetails();
         }
     }
@@ -57,9 +57,9 @@ public class Library {
         availableMovies.stream()
                 .filter(movie -> movie.checkMovieByName(movieName))
                 .findFirst()
-                .ifPresent(movie -> {
+                .ifPresentOrElse(movie -> {
                     checkedOutMovies.add(movie);
                     printOutput("Thank you! Enjoy the movie");
-                });
+                }, () -> printOutput("Sorry, that movie is not available"));
     }
 }
