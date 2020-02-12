@@ -20,5 +20,8 @@ public class CheckOut implements MenuActions {
             String bookName = scanner.nextLine();
             library.checkoutBook(bookName);
         }
+        else {
+            printOutput("Invalid Credentials");
+        }
     }
 }

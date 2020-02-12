@@ -32,7 +32,7 @@ class UserInputTest {
 
         User user = new User("123-4567", "password");
 
-        Library library = new Library(Arrays.asList(bookOne, bookTwo), Arrays.asList(movieOne, movieTwo, movieThree),Arrays.asList(user));
+        Library library = new Library(Arrays.asList(bookOne, bookTwo), Arrays.asList(movieOne, movieTwo, movieThree), Arrays.asList(user));
         userInput = new UserInput(new Strategy(library));
     }
 
@@ -73,6 +73,19 @@ class UserInputTest {
                 "Enter password\n" +
                 "Enter book name to check out : \n" +
                 "Thank you! Enjoy the book\n";
+
+        userInput.selectMenuOption();
+
+        assertEquals(expectedOutput, outContent.toString());
+    }
+
+    @Test
+    void shouldNotAllowCheckoutWhenUserCredentialsAreInvalid() {
+        String option = "2\n124\npassword\nPride and Prejudice";
+        System.setIn(new ByteArrayInputStream(option.getBytes()));
+        String expectedOutput = "Enter Library Number\n" +
+                "Enter password\n" +
+                "Invalid Credentials\n";
 
         userInput.selectMenuOption();
 
