@@ -3,6 +3,8 @@ package com.twu.biblioteca;
 import com.twu.biblioteca.MenuStrategy.Strategy;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Scanner;
 
 import static com.twu.biblioteca.CustomInputOutput.printOutput;
 
@@ -10,12 +12,10 @@ import static com.twu.biblioteca.CustomInputOutput.printOutput;
 // TODO - how many library entities are in the running instance of this class? - DONE
 // TODO - who manages the lifecycle of those entities? - DONE
 public class BibliotecaApp {
-    UserInput userInput;
     Menu menu;
     Library library;
 
-    public BibliotecaApp(UserInput userInput, Library library, Menu menu) {
-        this.userInput = userInput;
+    public BibliotecaApp(Library library, Menu menu) {
         this.library = library;
         this.menu = menu;
     }
@@ -34,7 +34,10 @@ public class BibliotecaApp {
     }
 
     public void selectOption() {
-        userInput.selectMenuOption();
+        Scanner in = new Scanner(System.in);
+        String menuOption = in.nextLine();
+        int option = Integer.parseInt(menuOption);
+        menu.mapOptionToActions(option, in);
     }
 
     public static void main(String[] args) {
@@ -47,11 +50,11 @@ public class BibliotecaApp {
 
         User user = new User("123-4567", "password");
 
-        Library library = new Library(Arrays.asList(bookOne, bookTwo), Arrays.asList(movieOne,movieTwo, movieThree), Arrays.asList(user));
-        UserInput userInput = new UserInput(new Strategy(library));
-        Menu menu = new Menu();
+        Library library = new Library(Arrays.asList(bookOne, bookTwo), Arrays.asList(movieOne,movieTwo, movieThree), Collections.singletonList(user));
+        //UserInput userInput = new UserInput(new Strategy(library));
+        Menu menu = new Menu(library);
 
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(userInput, library, menu);
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(library, menu);
         bibliotecaApp.displayWelcomeMessage();
 
         while (true) {

@@ -7,6 +7,7 @@ import java.util.List;
 import static com.twu.biblioteca.CustomInputOutput.printOutput;
 
 public class Library {
+    private static boolean isLoggedIn = false;
     private List<Book> availableBooks;
     private HashMap<Book, String> checkedoutBooks= new HashMap<>();
     private List<Movie> availableMovies;
@@ -70,10 +71,13 @@ public class Library {
 
     public boolean validateUser(String number, String password) {
        for(User user : users){
-           if((user.getLibraryNumber().equals(number)) && (user.getPassword().equals(password))) {
-               return true;
-           }
+          isLoggedIn = user.checkCredentials(number, password);
+          if(isLoggedIn) break;
        }
-       return false;
+       return isLoggedIn;
+    }
+
+    public static boolean getLoginStatus(){
+        return isLoggedIn;
     }
 }

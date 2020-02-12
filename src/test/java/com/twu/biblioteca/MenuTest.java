@@ -28,7 +28,7 @@ class MenuTest {
 
     @Test
     void shouldDisplayTheListOfMenuOptions() {
-        Menu menu = new Menu();
+        Menu menu = new Menu(null);
         String expectedOutput = "1. List of Books\n" +
                 "2. Checkout Book\n" +
                 "3. Return Book\n" +

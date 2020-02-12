@@ -16,4 +16,8 @@ public class User {
     public String getPassword() {
         return this.password;
     }
+
+    public boolean checkCredentials(String number, String password) {
+        return this.libraryNumber.equals(number) && this.password.equals(password);
+    }
 }

@@ -9,6 +9,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Arrays;
+import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -35,10 +36,9 @@ class BibliotecaAppTest {
 
         User user = new User("123-4567", "password");
 
-        Library library = new Library(Arrays.asList(bookOne, bookTwo), Arrays.asList(movieOne, movieTwo, movieThree), Arrays.asList(user));
-        UserInput userInput = new UserInput(new Strategy(library));
-        Menu menu = new Menu();
-        bibliotecaApp = new BibliotecaApp(userInput, library, menu);
+        Library library = new Library(Arrays.asList(bookOne, bookTwo), Arrays.asList(movieOne, movieTwo, movieThree), Collections.singletonList(user));
+        Menu menu = new Menu(library);
+        bibliotecaApp = new BibliotecaApp(library, menu);
     }
 
 
