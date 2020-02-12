@@ -184,7 +184,19 @@ class LibraryTest {
         String userId = "123-4567";
         String expected = "Thank you! Enjoy the book\n" +
                 "Shawshank Redemption | Stephen King | 1982\n";
+
         library.checkoutBook("Shawshank Redemption", userId);
+        library.viewCheckedoutBooks();
+
+        assertEquals(expected, outContent.toString());
+    }
+
+    @Test
+    void shouldNotToDisplayWhenNoBooksAreCheckedOut() {
+        String userId = "123-4567";
+        String expected = "Sorry, that book is not available\n";
+
+        library.checkoutBook("", userId);
         library.viewCheckedoutBooks();
 
         assertEquals(expected, outContent.toString());
