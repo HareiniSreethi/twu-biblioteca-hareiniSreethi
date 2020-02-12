@@ -25,7 +25,12 @@ class UserInputTest {
         System.setOut(new PrintStream(outContent));
         Book bookOne = new Book("Shawshank Redemption", "Stephen King", "1982");
         Book bookTwo = new Book("Pride and Prejudice", "Jane Austen", "1813");
-        Library library = new Library(Arrays.asList(bookOne, bookTwo));
+
+        Movie movieOne = new Movie("Titanic", "1997", "James Cameron", "8");
+        Movie movieTwo = new Movie("Joker", "2019", "Todd Phillips", "9");
+        Movie movieThree = new Movie("Jumanji", "1995", "Joe Johnston", "7");
+
+        Library library = new Library(Arrays.asList(bookOne, bookTwo), Arrays.asList(movieOne, movieTwo, movieThree));
         userInput = new UserInput(new Strategy(library));
     }
 

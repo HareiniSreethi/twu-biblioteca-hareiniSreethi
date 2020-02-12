@@ -17,6 +17,7 @@ class LibraryTest {
     private ByteArrayOutputStream outContent;
     private PrintStream originalOut;
     private Library library;
+
     @BeforeEach
     public void setUp() {
         outContent = new ByteArrayOutputStream();
@@ -25,7 +26,12 @@ class LibraryTest {
 
         Book bookOne = new Book("Shawshank Redemption", "Stephen King", "1982");
         Book bookTwo = new Book("Pride and Prejudice", "Jane Austen", "1813");
-        library = new Library(Arrays.asList(bookOne, bookTwo));
+
+        Movie movieOne = new Movie("Titanic", "1997", "James Cameron", "8");
+        Movie movieTwo = new Movie("Joker", "2019", "Todd Phillips", "9");
+        Movie movieThree = new Movie("Jumanji", "1995", "Joe Johnston", "7");
+
+        library = new Library(Arrays.asList(bookOne, bookTwo), Arrays.asList(movieOne, movieTwo, movieThree));
     }
 
     @AfterEach
@@ -107,16 +113,10 @@ class LibraryTest {
 
     @Test
     void shouldBeAbleToViewListOfAvailableMovies() {
-        Movie movieOne = new Movie("Titanic", "1997", "James Cameron", "8");
-        Movie movieTwo = new Movie("Joker", "2019", "Todd Phillips", "9");
-        Movie movieThree =  new Movie("Jumanji", "1995", "Joe Johnston", "7");
-        List<Movie> moviesList = Arrays.asList(movieOne,movieTwo, movieThree);
-
         String expectedOutput = "Titanic | 1997 | James Cameron | 8\n" +
                 "Joker | 2019 | Todd Phillips | 9\n" +
                 "Jumanji | 1995 | Joe Johnston | 7\n";
 
-        library.addMovies(moviesList);
         library.viewAvailableMovies();
 
         assertEquals(expectedOutput, outContent.toString());
