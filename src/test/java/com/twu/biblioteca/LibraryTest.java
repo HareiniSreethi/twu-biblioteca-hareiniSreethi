@@ -8,8 +8,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
 
@@ -158,5 +157,19 @@ class LibraryTest {
         String number = "123-4567";
         String password = "password";
         assertTrue(library.validateUser(number, password));
+    }
+
+    @Test
+    void shouldNotToValidateUserWhenNumberIsIncorrectFormat() {
+        String number = "1234567";
+        String password = "password";
+        assertFalse(library.validateUser(number, password));
+    }
+
+    @Test
+    void shouldNotToValidateUserWhenPasswordIsNotCaseSensitive() {
+        String number = "123-4567";
+        String password = "PassWord";
+        assertFalse(library.validateUser(number, password));
     }
 }

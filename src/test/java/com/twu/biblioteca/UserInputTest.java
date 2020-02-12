@@ -67,11 +67,9 @@ class UserInputTest {
 
     @Test
     void shouldBeAbleToCheckOutABook() {
-        String option = "2\n123-4567\npassword\nPride and Prejudice";
+        String option = "2\nPride and Prejudice";
         System.setIn(new ByteArrayInputStream(option.getBytes()));
-        String expectedOutput = "Enter Library Number\n" +
-                "Enter password\n" +
-                "Enter book name to check out : \n" +
+        String expectedOutput = "Enter book name to check out : \n" +
                 "Thank you! Enjoy the book\n";
 
         userInput.selectMenuOption();
