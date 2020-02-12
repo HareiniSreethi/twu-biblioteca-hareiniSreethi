@@ -123,4 +123,17 @@ class UserInputTest {
 
         assertEquals(expectedOutput, outContent.toString());
     }
+
+    @Test
+    void shouldNotBeAbleToCheckOutUnAvailableMovie() {
+        String option = "5\nRadio";
+        System.setIn(new ByteArrayInputStream(option.getBytes()));
+        String expectedOutput = "Enter book name to check out : \n" +
+                "Sorry, that movie is not available\n";
+
+        userInput.selectMenuOption();
+
+        assertEquals(expectedOutput, outContent.toString());
+    }
+
 }
