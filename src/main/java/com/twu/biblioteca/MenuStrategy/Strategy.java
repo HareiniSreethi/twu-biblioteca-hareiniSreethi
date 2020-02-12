@@ -17,7 +17,8 @@ public class Strategy {
         optionMap.put(2, new CheckOut());
         optionMap.put(3, new ReturnBook());
         optionMap.put(4, new ListMovies());
-        optionMap.put(5, new Quit());
+        optionMap.put(5, new CheckoutMovie());
+        optionMap.put(6, new Quit());
     }
 
 
