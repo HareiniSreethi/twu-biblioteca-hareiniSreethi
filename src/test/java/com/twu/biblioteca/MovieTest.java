@@ -43,4 +43,10 @@ class MovieTest {
         assertTrue(movie.checkMovieByName("Titanic"));
     }
 
+    @Test
+    void shouldNotCompareTwoMoviesWithDifferentName() {
+        Movie movie = new Movie("Titanic", "1997", "James Cameron", "8");
+
+        assertFalse(movie.checkMovieByName("Hello"));
+    }
 }
