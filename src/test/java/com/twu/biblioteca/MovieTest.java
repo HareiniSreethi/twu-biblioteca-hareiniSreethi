@@ -49,4 +49,11 @@ class MovieTest {
 
         assertFalse(movie.checkMovieByName("Hello"));
     }
+
+    @Test
+    void shouldNotCompareMoviesWithEmptyName() {
+        Movie movie = new Movie("Titanic", "1997", "James Cameron", "8");
+
+        assertFalse(movie.checkMovieByName(""));
+    }
 }
