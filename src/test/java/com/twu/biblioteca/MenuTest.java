@@ -33,7 +33,8 @@ class MenuTest {
                 "2. Checkout Book\n" +
                 "3. Return Book\n" +
                 "4. List of Movies\n" +
-                "5. Quit\n";
+                "5. Checkout Movie\n" +
+                "6. Quit\n";
 
         menu.displayOptions();
 
