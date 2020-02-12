@@ -108,10 +108,25 @@ class UserInputTest {
 
     @Test
     void shouldBeAbleToNotifyOnSuccessfulReturnOfCheckedOutBook() {
-        String option = "3\nPride and Prejudice";
+        String option = "3\n123-4567\npassword\nPride and Prejudice";
         System.setIn(new ByteArrayInputStream(option.getBytes()));
-        String expectedOutput = "Enter book name to return : \n" +
+        String expectedOutput = "Enter Library Number\n" +
+                "Enter password\n" +
+                "Enter book name to return : \n" +
                 "That is not a valid book to return\n";
+
+        userInput.selectMenuOption();
+
+        assertEquals(expectedOutput, outContent.toString());
+    }
+
+    @Test
+    void shouldNotBeAbleToReturnBookIfCredentialsInvalid(){
+        String option = "3\n14567\npassword\nPride and Prejudice";
+        System.setIn(new ByteArrayInputStream(option.getBytes()));
+        String expectedOutput = "Enter Library Number\n" +
+                "Enter password\n" +
+                "Invalid Credentials\n";
 
         userInput.selectMenuOption();
 
