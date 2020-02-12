@@ -4,7 +4,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Arrays;
@@ -31,7 +30,9 @@ class LibraryTest {
         Movie movieTwo = new Movie("Joker", "2019", "Todd Phillips", "9");
         Movie movieThree = new Movie("Jumanji", "1995", "Joe Johnston", "7");
 
-        library = new Library(Arrays.asList(bookOne, bookTwo), Arrays.asList(movieOne, movieTwo, movieThree));
+        User user = new User("123-4567", "password");
+
+        library = new Library(Arrays.asList(bookOne, bookTwo), Arrays.asList(movieOne, movieTwo, movieThree), Arrays.asList(user));
     }
 
     @AfterEach
@@ -150,5 +151,12 @@ class LibraryTest {
         library.viewAvailableMovies();
 
         assertEquals(expectedOutput, outContent.toString());
+    }
+
+    @Test
+    void shouldBeAbleToValidateUserWhenNumberAndPasswordAreCorrect() {
+        String number = "123-4567";
+        String password = "password";
+        assertTrue(library.validateUser(number, password));
     }
 }
