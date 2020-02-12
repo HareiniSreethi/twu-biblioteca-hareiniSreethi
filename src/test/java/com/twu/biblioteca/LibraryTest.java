@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -120,5 +119,14 @@ class LibraryTest {
         library.viewAvailableMovies();
 
         assertEquals(expectedOutput, outContent.toString());
+    }
+
+    @Test
+    void shouldBeAbleToCheckOutAnAvailableMovieFromLibrary() {
+        String expected = "Thank you! Enjoy the movie\n";
+
+        library.checkoutMovie("Titanic");
+
+        assertEquals(expected, outContent.toString());
     }
 }

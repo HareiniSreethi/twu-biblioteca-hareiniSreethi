@@ -1,7 +1,6 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static com.twu.biblioteca.CustomInputOutput.printOutput;
@@ -10,6 +9,7 @@ public class Library {
     List<Book> availableBooks;
     List<Book> checkedoutBooks = new ArrayList<>();
     List<Movie> availableMovies;
+    List<Movie> checkedOutMovies = new ArrayList<>();
 
     public Library(List<Book> availableBooks, List<Movie> availableMovies) {
         // TODO - hardcoded inside. - DONE
@@ -51,5 +51,15 @@ public class Library {
         for(Movie movie : availableMovies) {
             movie.viewMovieDetails();
         }
+    }
+
+    public void checkoutMovie(String movieName) {
+        availableMovies.stream()
+                .filter(movie -> movie.checkMovieByName(movieName))
+                .findFirst()
+                .ifPresent(movie -> {
+                    checkedOutMovies.add(movie);
+                    printOutput("Thank you! Enjoy the movie");
+                });
     }
 }
