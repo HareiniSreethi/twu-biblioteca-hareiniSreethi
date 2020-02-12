@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static com.twu.biblioteca.CustomInputOutput.printOutput;
 
@@ -79,5 +80,12 @@ public class Library {
 
     public static boolean getLoginStatus(){
         return isLoggedIn;
+    }
+
+    public void viewCheckedoutBooks() {
+        for (Book book : availableBooks) {
+            if (checkedoutBooks.containsKey(book))
+                book.viewBookDetails();
+        }
     }
 }

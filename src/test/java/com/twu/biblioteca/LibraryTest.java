@@ -178,4 +178,15 @@ class LibraryTest {
         String password = "PassWord";
         assertFalse(library.validateUser(number, password));
     }
+
+    @Test
+    void shouldBeAbleToDisplayCheckedOutBooks() {
+        String userId = "123-4567";
+        String expected = "Thank you! Enjoy the book\n" +
+                "Shawshank Redemption | Stephen King | 1982\n";
+        library.checkoutBook("Shawshank Redemption", userId);
+        library.viewCheckedoutBooks();
+
+        assertEquals(expected, outContent.toString());
+    }
 }
