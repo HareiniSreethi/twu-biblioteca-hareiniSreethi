@@ -111,4 +111,16 @@ class UserInputTest {
 
         assertEquals(expectedOutput, outContent.toString());
     }
+
+    @Test
+    void shouldBeAbleToCheckOutMovieAndReceiveSuccessfulNotification() {
+        String option = "5\nJoker";
+        System.setIn(new ByteArrayInputStream(option.getBytes()));
+        String expectedOutput = "Enter book name to check out : \n" +
+                "Thank you! Enjoy the movie\n";
+
+        userInput.selectMenuOption();
+
+        assertEquals(expectedOutput, outContent.toString());
+    }
 }
