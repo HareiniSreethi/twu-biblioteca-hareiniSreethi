@@ -19,4 +19,8 @@ public class Movie {
         String columnSeparator = " | ";
         printOutput(this.name + columnSeparator + this.year + columnSeparator + this.director + columnSeparator + this.rating);
     }
+
+    public boolean checkMovieByName(String movieName) {
+        return this.name.equals(movieName);
+    }
 }
