@@ -67,9 +67,11 @@ class UserInputTest {
 
     @Test
     void shouldBeAbleToCheckOutABook() {
-        String option = "2\nPride and Prejudice";
+        String option = "2\n123-4567\npassword\nPride and Prejudice";
         System.setIn(new ByteArrayInputStream(option.getBytes()));
-        String expectedOutput = "Enter book name to check out : \n" +
+        String expectedOutput = "Enter Library Number\n" +
+                "Enter password\n" +
+                "Enter book name to check out : \n" +
                 "Thank you! Enjoy the book\n";
 
         userInput.selectMenuOption();
@@ -79,9 +81,11 @@ class UserInputTest {
 
     @Test
     void shouldNotifyOnUnsuccessfulCheckoutOfABook() {
-        String option = "2\nHello";
+        String option = "2\n123-4567\npassword\nHello";
         System.setIn(new ByteArrayInputStream(option.getBytes()));
-        String expectedOutput = "Enter book name to check out : \n" +
+        String expectedOutput = "Enter Library Number\n" +
+                "Enter password\n" +
+                "Enter book name to check out : \n" +
                 "Sorry, that book is not available\n";
 
         userInput.selectMenuOption();
