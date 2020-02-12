@@ -98,4 +98,17 @@ class UserInputTest {
 
         assertEquals(expectedOutput, outContent.toString());
     }
+
+    @Test
+    void shouldDisplayAvailableMoviesOnOptionFourSelection() {
+        String option = "4";
+        System.setIn(new ByteArrayInputStream(option.getBytes()));
+        String expectedOutput = "Titanic | 1997 | James Cameron | 8\n" +
+                "Joker | 2019 | Todd Phillips | 9\n" +
+                "Jumanji | 1995 | Joe Johnston | 7\n";
+
+        userInput.selectMenuOption();
+
+        assertEquals(expectedOutput, outContent.toString());
+    }
 }
