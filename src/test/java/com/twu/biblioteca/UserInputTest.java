@@ -30,7 +30,9 @@ class UserInputTest {
         Movie movieTwo = new Movie("Joker", "2019", "Todd Phillips", "9");
         Movie movieThree = new Movie("Jumanji", "1995", "Joe Johnston", "7");
 
-        Library library = new Library(Arrays.asList(bookOne, bookTwo), Arrays.asList(movieOne, movieTwo, movieThree));
+        User user = new User("123-4567", "password");
+
+        Library library = new Library(Arrays.asList(bookOne, bookTwo), Arrays.asList(movieOne, movieTwo, movieThree),Arrays.asList(user));
         userInput = new UserInput(new Strategy(library));
     }
 
@@ -65,9 +67,11 @@ class UserInputTest {
 
     @Test
     void shouldBeAbleToCheckOutABook() {
-        String option = "2\nPride and Prejudice";
+        String option = "2\n123-4567\npassword\nPride and Prejudice";
         System.setIn(new ByteArrayInputStream(option.getBytes()));
-        String expectedOutput = "Enter book name to check out : \n" +
+        String expectedOutput = "Enter Library Number\n" +
+                "Enter password\n" +
+                "Enter book name to check out : \n" +
                 "Thank you! Enjoy the book\n";
 
         userInput.selectMenuOption();

@@ -38,7 +38,6 @@ public class BibliotecaApp {
     }
 
     public static void main(String[] args) {
-        Boolean isRunning = true;
         Book bookOne = new Book("Shawshank Redemption", "Stephen King", "1982");
         Book bookTwo = new Book("Pride and Prejudice", "Jane Austen", "1813");
 
@@ -46,14 +45,16 @@ public class BibliotecaApp {
         Movie movieTwo = new Movie("Joker", "2019", "Todd Phillips", "9");
         Movie movieThree =  new Movie("Jumanji", "1995", "Joe Johnston", "7");
 
-        Library library = new Library(Arrays.asList(bookOne, bookTwo), Arrays.asList(movieOne,movieTwo, movieThree));
+        User user = new User("123-4567", "password");
+
+        Library library = new Library(Arrays.asList(bookOne, bookTwo), Arrays.asList(movieOne,movieTwo, movieThree), Arrays.asList(user));
         UserInput userInput = new UserInput(new Strategy(library));
         Menu menu = new Menu();
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(userInput, library, menu);
         bibliotecaApp.displayWelcomeMessage();
 
-        while (isRunning) {
+        while (true) {
             printOutput("\n");
             bibliotecaApp.displayMenuOptions();
             printOutput("\nSelect an option from menu");

@@ -33,7 +33,9 @@ class BibliotecaAppTest {
         Movie movieTwo = new Movie("Joker", "2019", "Todd Phillips", "9");
         Movie movieThree = new Movie("Jumanji", "1995", "Joe Johnston", "7");
 
-        Library library = new Library(Arrays.asList(bookOne, bookTwo), Arrays.asList(movieOne, movieTwo, movieThree));
+        User user = new User("123-4567", "password");
+
+        Library library = new Library(Arrays.asList(bookOne, bookTwo), Arrays.asList(movieOne, movieTwo, movieThree), Arrays.asList(user));
         UserInput userInput = new UserInput(new Strategy(library));
         Menu menu = new Menu();
         bibliotecaApp = new BibliotecaApp(userInput, library, menu);
