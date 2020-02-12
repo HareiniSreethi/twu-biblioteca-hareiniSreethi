@@ -49,7 +49,9 @@ public class Library {
 
     public void viewAvailableMovies() {
         for (Movie movie : availableMovies) {
-            movie.viewMovieDetails();
+            if(! checkedOutMovies.contains(movie)){
+                movie.viewMovieDetails();
+            }
         }
     }
 

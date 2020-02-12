@@ -4,6 +4,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Arrays;
@@ -137,5 +138,17 @@ class LibraryTest {
         library.checkoutMovie("Hello");
 
         assertEquals(expected, outContent.toString());
+    }
+
+    @Test
+    void shouldCheckIfCheckedOutMovieIsNotAvailableInLibrary() {
+        String expectedOutput = "Thank you! Enjoy the movie\n"
+                + "Titanic | 1997 | James Cameron | 8\n" +
+                "Jumanji | 1995 | Joe Johnston | 7\n";
+
+        library.checkoutMovie("Joker");
+        library.viewAvailableMovies();
+
+        assertEquals(expectedOutput, outContent.toString());
     }
 }
