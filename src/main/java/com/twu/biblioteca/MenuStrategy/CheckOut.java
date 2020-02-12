@@ -18,7 +18,7 @@ public class CheckOut implements MenuActions {
         if(library.validateUser(number, password)){
             printOutput("Enter book name to check out : ");
             String bookName = scanner.nextLine();
-            library.checkoutBook(bookName);
+            library.checkoutBook(bookName, number);
         }
         else {
             printOutput("Invalid Credentials");

@@ -1,13 +1,14 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import static com.twu.biblioteca.CustomInputOutput.printOutput;
 
 public class Library {
     private List<Book> availableBooks;
-    private List<Book> checkedoutBooks = new ArrayList<>();
+    private HashMap<Book, String> checkedoutBooks= new HashMap<>();
     private List<Movie> availableMovies;
     private List<User> users;
     private List<Movie> checkedOutMovies = new ArrayList<>();
@@ -21,29 +22,29 @@ public class Library {
 
     public void viewAvailableBooks() {
         for (Book book : availableBooks) {
-            if (!checkedoutBooks.contains(book))
+            if (!checkedoutBooks.containsKey(book))
                 book.viewBookDetails();
         }
     }
 
-    public void checkoutBook(String bookName) {
+    public void checkoutBook(String bookName, String userId) {
         // TODO - get rid of the loop? somehow. equals implementation - without loop. else streams. go read about it.- DONE
         availableBooks.stream()
                 .filter(book -> book.checkBookByName(bookName))
                 .findFirst()
                 .ifPresentOrElse(book -> {
-                    checkedoutBooks.add(book);
+                    checkedoutBooks.put(book, userId);
                     printOutput("Thank you! Enjoy the book");
                 }, () -> printOutput("Sorry, that book is not available"));
     }
 
 
     public void returnBook(String bookName) {
-        checkedoutBooks.stream()
-                .filter(book -> book.checkBookByName(bookName))
+        checkedoutBooks.entrySet().stream()
+                .filter(entry -> entry.getKey().checkBookByName(bookName))
                 .findFirst()
-                .ifPresentOrElse(book -> {
-                    checkedoutBooks.remove(book);
+                .ifPresentOrElse(entry -> {
+                    checkedoutBooks.remove(entry.getKey());
                     printOutput("Thank you for returning the book");
                 }, () -> printOutput("That is not a valid book to return"));
 

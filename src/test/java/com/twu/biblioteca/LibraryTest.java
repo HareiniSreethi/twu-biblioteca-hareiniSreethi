@@ -52,8 +52,9 @@ class LibraryTest {
     @Test
     void shouldBeAbleToCheckoutABookFromLibrary() {
         String expected = "Thank you! Enjoy the book\n" + "Pride and Prejudice | Jane Austen | 1813\n";
+        String userId = "123-4567";
 
-        library.checkoutBook("Shawshank Redemption");
+        library.checkoutBook("Shawshank Redemption", userId);
         library.viewAvailableBooks();
 
         assertEquals(expected, outContent.toString());
@@ -62,8 +63,9 @@ class LibraryTest {
     @Test
     void shouldDisplayANotificationOnSuccessfulBookCheckout() {
         String expected = "Thank you! Enjoy the book\n";
+        String userId = "123-4567";
 
-        library.checkoutBook("Shawshank Redemption");
+        library.checkoutBook("Shawshank Redemption", userId);
 
         assertTrue(outContent.toString().contains(expected));
     }
@@ -71,20 +73,23 @@ class LibraryTest {
     @Test
     void shouldDisplayUnSuccessfulMessageWhenBookIsNotAvailableForCheckout() {
         String expected = "Sorry, that book is not available\n";
+        String userId = "123-4567";
 
-        library.checkoutBook("Harry Potter");
+        library.checkoutBook("Harry Potter", userId);
 
         assertTrue(outContent.toString().contains(expected));
     }
 
     @Test
     void shouldBeAbleToReturnABook() {
+        String userId = "123-4567";
         String expected = "Thank you! Enjoy the book\n" +
                 "Thank you for returning the book\n" +
                 "Shawshank Redemption | Stephen King | 1982\n" +
                 "Pride and Prejudice | Jane Austen | 1813\n";
 
-        library.checkoutBook("Shawshank Redemption");
+
+        library.checkoutBook("Shawshank Redemption", userId);
         library.returnBook("Shawshank Redemption");
         library.viewAvailableBooks();
 
@@ -93,10 +98,11 @@ class LibraryTest {
 
     @Test
     void shouldDisplayNotificationOnSuccessfulReturnOfBook() {
+        String userId = "123-4567";
         String expected = "Thank you! Enjoy the book\n" +
                 "Thank you for returning the book\n";
 
-        library.checkoutBook("Shawshank Redemption");
+        library.checkoutBook("Shawshank Redemption", userId);
         library.returnBook("Shawshank Redemption");
 
         assertEquals(expected, outContent.toString());
