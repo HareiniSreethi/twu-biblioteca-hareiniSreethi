@@ -12,7 +12,7 @@ public enum MenuOptions {
     RETURN_BOOKS(false, "Return Book", new ReturnBook()),
     LIST_OF_MOVIES(false, "List of Movies", new ListMovies()),
     CHECKOUT_MOVIES(false, "Checkout Movie", new CheckoutMovie()),
-    VIEW_CHECKEDOUT_BOOKS(true, "View Checkedout Books", new CheckoutMovie()),
+    VIEW_CHECKEDOUT_BOOKS(true, "View Checkedout Books", new ViewCheckedoutBooks()),
     QUIT(false, "Quit", new Quit());
 
     private final boolean isLoggedIn;

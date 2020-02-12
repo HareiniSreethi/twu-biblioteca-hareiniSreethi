@@ -9,7 +9,7 @@ import static com.twu.biblioteca.CustomInputOutput.printOutput;
 public class CheckoutMovie implements MenuActions {
     @Override
     public void performAction(Library library, Scanner scanner) {
-        printOutput("Enter book name to check out : ");
+        printOutput("Enter movie name to check out : ");
         String movieName = scanner.nextLine();
         library.checkoutMovie(movieName);
     }
